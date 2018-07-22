@@ -12,16 +12,15 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import urediRacunApp.UrediRacunController;
 
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
@@ -29,6 +28,8 @@ import java.util.ResourceBundle;
 public class KorisnikController implements Initializable
 {
     KorisnikData korisnikData;
+
+    RacunData selectedRacunData = null;
 
     public KorisnikController(KorisnikData korisnikData)
     {
@@ -47,7 +48,6 @@ public class KorisnikController implements Initializable
             @Override
             public void handle(ActionEvent e)
             {
-
                 try
                 {
                     FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/dodajRacunApp/dodajRacun.fxml"));
@@ -64,8 +64,65 @@ public class KorisnikController implements Initializable
                 {
                     ex.printStackTrace();
                 }
-
             }
+        });
+
+        btnObrisiRacun.setOnAction(new EventHandler<ActionEvent>()
+        {
+            @Override
+            public void handle(ActionEvent e)
+            {
+                obrisiRacun();
+            }
+        });
+
+        btnUrediRacun.setOnAction(new EventHandler<ActionEvent>()
+        {
+            @Override
+            public void handle(ActionEvent e)
+            {
+                urediRacun();
+            }
+        });
+
+        btnUrediKorisnika.setOnAction(new EventHandler<ActionEvent>()
+        {
+            @Override
+            public void handle(ActionEvent e)
+            {
+                System.out.println("UREDI KORISNIKA");
+            }
+        });
+
+        btnSacuvajKorisnika.setOnAction(new EventHandler<ActionEvent>()
+        {
+            @Override
+            public void handle(ActionEvent e)
+            {
+                sacuvajKorisnika();
+            }
+        });
+
+        btnObrisiKorisnika.setOnAction(new EventHandler<ActionEvent>()
+        {
+            @Override
+            public void handle(ActionEvent e)
+            {
+                obrisiKorisnika();
+            }
+        });
+
+        this.tvRacun.setRowFactory(tv ->
+        {
+            TableRow<RacunData> row = new TableRow<>();
+            row.setOnMouseClicked(event ->
+            {
+                if (event.getClickCount() == 1 && (!row.isEmpty()))
+                {
+                    selectedRacunData = row.getItem();
+                }
+            });
+            return row;
         });
     }
 
@@ -80,7 +137,7 @@ public class KorisnikController implements Initializable
     private TextField tfPostaKor;
 
     @FXML
-    private TextField ftMestoKor;
+    private TextField tfMestoKor;
 
     @FXML
     private TextField tfAdresaKor;
@@ -93,7 +150,7 @@ public class KorisnikController implements Initializable
         this.tfIdKorisnik.setText(this.korisnikData.getIdKorisnik());
         this.tfImeKor.setText(this.korisnikData.getIme());
         this.tfPostaKor.setText(this.korisnikData.getPosta());
-        this.ftMestoKor.setText(this.korisnikData.getMesto());
+        this.tfMestoKor.setText(this.korisnikData.getMesto());
         this.tfAdresaKor.setText(this.korisnikData.getAdresa());
         this.tfPibKor.setText(this.korisnikData.getPib());
     }
@@ -223,6 +280,126 @@ public class KorisnikController implements Initializable
         this.tvRacun.setItems(this.racunData);
     }
 
+    private void obrisiRacun()
+    {
+        String sql = "DELETE FROM racun WHERE idRacun = ?";
+        try
+        {
+            if(selectedRacunData == null)
+            {
+                return;
+            }
+
+            Connection conn = dbConnection.getConnection();
+            PreparedStatement stmt = conn.prepareStatement(sql);
+
+            stmt.setString(1, selectedRacunData.getIdRacun());
+
+            stmt.executeUpdate();
+            conn.close();
+        } catch (SQLException ex)
+        {
+            ex.printStackTrace();
+        }
+    }
+
+    private void urediRacun()
+    {
+        try
+        {
+            if (selectedRacunData == null)
+            {
+                return;
+            }
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/urediRacunApp/urediRacun.fxml"));
+            UrediRacunController controller = new UrediRacunController(selectedRacunData);
+            fxmlLoader.setController(controller);
+            Parent root = fxmlLoader.load();
+            Stage stage = new Stage();
+            // Aleksa TODO: add ime korisnika maybe
+            stage.setTitle(selectedRacunData.getBrojRacuna());
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+    private void sacuvajKorisnika()
+    {
+        String sql = "UPDATE korisnik SET ime = ?, posta = ?, mesto = ?, adresa = ?, pib = ? WHERE idKorisnik = ?";
+        try
+        {
+            Connection conn = dbConnection.getConnection();
+            PreparedStatement stmt = conn.prepareStatement(sql);
+
+            stmt.setString(1, tfImeKor.getText());
+            stmt.setString(2, tfPostaKor.getText());
+            stmt.setString(3, tfMestoKor.getText());
+            stmt.setString(4, tfAdresaKor.getText());
+            stmt.setString(5, tfPibKor.getText());
+            stmt.setString(6, korisnikData.getIdKorisnik());
+
+            stmt.executeUpdate();
+            conn.close();
+
+            // Aleksa TODO: add confirmation message box
+        } catch (SQLException ex)
+        {
+            ex.printStackTrace();
+        }
+    }
+
+    private void obrisiKorisnika()
+    {
+        String sql = "DELETE FROM korisnik WHERE idKorisnik = ?";
+        try
+        {
+            Connection conn = dbConnection.getConnection();
+            PreparedStatement stmt = conn.prepareStatement(sql);
+
+            stmt.setString(1, korisnikData.getIdKorisnik());
+
+            stmt.executeUpdate();
+            conn.close();
+        } catch (SQLException ex)
+        {
+            ex.printStackTrace();
+        }
+
+        sql = "DELETE FROM racun WHERE idKorisnik = ?";
+        try
+        {
+            Connection conn = dbConnection.getConnection();
+            PreparedStatement stmt = conn.prepareStatement(sql);
+
+            stmt.setString(1, korisnikData.getIdKorisnik());
+
+            stmt.executeUpdate();
+            conn.close();
+        } catch (SQLException ex)
+        {
+            ex.printStackTrace();
+        }
+    }
+
+
     @FXML
     private Button btnDodajRacun;
+
+    @FXML
+    private Button btnObrisiRacun;
+
+    @FXML
+    private Button btnUrediRacun;
+
+    @FXML
+    private Button btnUrediKorisnika;
+
+    @FXML
+    private Button btnSacuvajKorisnika;
+
+    @FXML
+    private Button btnObrisiKorisnika;
 }

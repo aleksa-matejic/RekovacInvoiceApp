@@ -1,4 +1,4 @@
-package dodajRacunApp;
+package urediRacunApp;
 
 import dbUtil.dbConnection;
 import javafx.event.ActionEvent;
@@ -8,6 +8,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
+import korisnikApp.RacunData;
 
 import java.net.URL;
 import java.sql.Connection;
@@ -15,30 +16,33 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
-public class DodajRacunController implements Initializable
+public class UrediRacunController implements Initializable
 {
-    private String idKorisnik;
 
-    public DodajRacunController(String idKorisnik)
+    RacunData racunData;
+
+    public UrediRacunController(RacunData racunData)
     {
-        this.idKorisnik = idKorisnik;
+        this.racunData = racunData;
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources)
     {
-        btnDodaj.setOnAction(new EventHandler<ActionEvent>()
+        populateUrediRacunTextFields();
+
+        btnSacuvajIzmene.setOnAction(new EventHandler<ActionEvent>()
         {
             @Override
             public void handle(ActionEvent e)
             {
-                addRacun();
+                sacuvajIzmene();
             }
         });
     }
 
     @FXML
-    private Button btnDodaj;
+    private Button btnSacuvajIzmene;
 
     @FXML
     private TextField tfBrojRacuna;
@@ -97,12 +101,40 @@ public class DodajRacunController implements Initializable
     @FXML
     private DatePicker dpDatumPrometa;
 
-    private void addRacun()
+    private void populateUrediRacunTextFields()
     {
-        String sql = "INSERT INTO `racun`(`brojRacuna`, `pozivNaBroj`, `datumIzdavanja`, `mestoIzdavanja`, `dospeva`," +
-                " `datumPrometa`, `redniBroj`, `naziv`, `jm`, `kolicina`, " +
-                "`cena`, `pdvProcenat`, `cenaSaPdv`, `pdv`, `iznos`, `" +
-                "nazivDazbine`, `iznosPoreza`, `zaUplatu`, `slovima`, `idKorisnik`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        tfBrojRacuna.setText(racunData.getBrojRacuna());
+        tfPozivNaBroj.setText(racunData.getPozivNaBroj());
+        dpDatumIzdavanja.getEditor().setText(racunData.getDatumIzdavanja());
+        tfMestoIzdavanja.setText(racunData.getMestoIzdavanja());
+        dpDospeva.getEditor().setText(racunData.getDospeva());
+
+        dpDatumPrometa.getEditor().setText(racunData.getDatumPrometa());
+        tfRedniBroj.setText(racunData.getRedniBroj());
+        tfNaziv.setText(racunData.getNaziv());
+        tfJm.setText(racunData.getJm());
+        tfKolicina.setText(racunData.getKolicina());
+
+        tfCena.setText(racunData.getCena());
+        tfPdvProcenat.setText(racunData.getPdvProcenat());
+        tfCenaSaPdv.setText(racunData.getCenaSaPdv());
+        tfPdv.setText(racunData.getPdv());
+        tfIznos.setText(racunData.getIznos());
+
+        tfNazivDazbine.setText(racunData.getNazivDazbine());
+        tfIznosPoreza.setText(racunData.getIznosPoreza());
+        tfZaUplatu.setText(racunData.getZaUplatu());
+        tfSlovima.setText(racunData.getSlovima());
+    }
+
+    private void sacuvajIzmene()
+    {
+        String sql = "UPDATE racun SET brojRacuna = ?, pozivNaBroj = ?, datumIzdavanja = ?, mestoIzdavanja = ?, dospeva = ?, " +
+                "datumPrometa = ?, redniBroj = ?, naziv = ?, jm = ?, kolicina = ?, " +
+                "cena = ?, pdvProcenat = ?, cenaSaPdv = ?, pdv = ?, iznos = ?," +
+                "nazivDazbine = ?, iznosPoreza = ?, zaUplatu = ?, slovima = ?" +
+                "WHERE idRacun = ?";
+
         try
         {
             Connection conn = dbConnection.getConnection();
@@ -130,9 +162,9 @@ public class DodajRacunController implements Initializable
             stmt.setString(17, tfIznosPoreza.getText());
             stmt.setString(18, tfZaUplatu.getText());
             stmt.setString(19, tfSlovima.getText());
-            stmt.setString(20, idKorisnik);
+            stmt.setString(20, racunData.getIdRacun());
 
-            stmt.execute();
+            stmt.executeUpdate();
             conn.close();
 
             // Aleksa TODO: add confirmation message box

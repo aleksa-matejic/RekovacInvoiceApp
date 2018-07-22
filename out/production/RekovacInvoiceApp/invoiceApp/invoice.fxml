@@ -10,6 +10,24 @@
     <center>
         <TabPane prefHeight="200.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
             <tabs>
+                <Tab text="Korisnici">
+                    <content>
+                        <BorderPane>
+                            <center>
+                                <TableView fx:id="tvKorisnik" prefHeight="200.0" prefWidth="200.0">
+                                    <columns>
+                                        <TableColumn fx:id="colIdKorisnik" prefWidth="75.0" text="idKorisnik" />
+                                        <TableColumn fx:id="colImeKor" prefWidth="75.0" text="Ime" />
+                                        <TableColumn fx:id="colPostaKor" prefWidth="75.0" text="Posta" />
+                                        <TableColumn fx:id="colMestoKor" prefWidth="75.0" text="Mesto" />
+                                        <TableColumn fx:id="colAdresaKor" prefWidth="75.0" text="Adresa" />
+                                        <TableColumn fx:id="colPibKor" prefWidth="75.0" text="PIB" />
+                                    </columns>
+                                </TableView>
+                            </center>
+                        </BorderPane>
+                    </content>
+                </Tab>
                 <Tab text="Firma">
                     <content>
                         <BorderPane>
@@ -27,24 +45,6 @@
                                         <TableColumn fx:id="colTekuciRacun" prefWidth="75.0" text="Tekuci Racun" />
                                         <TableColumn fx:id="colKodBanke" prefWidth="75.0" text="Kod Banke" />
                                         <TableColumn fx:id="colEmail" prefWidth="75.0" text="Email" />
-                                    </columns>
-                                </TableView>
-                            </center>
-                        </BorderPane>
-                    </content>
-                </Tab>
-                <Tab text="Korisnici">
-                    <content>
-                        <BorderPane>
-                            <center>
-                                <TableView fx:id="tvKorisnik" prefHeight="200.0" prefWidth="200.0">
-                                    <columns>
-                                        <TableColumn fx:id="colIdKorisnik" prefWidth="75.0" text="idKorisnik" />
-                                        <TableColumn fx:id="colImeKor" prefWidth="75.0" text="Ime" />
-                                        <TableColumn fx:id="colPostaKor" prefWidth="75.0" text="Posta" />
-                                        <TableColumn fx:id="colMestoKor" prefWidth="75.0" text="Mesto" />
-                                        <TableColumn fx:id="colAdresaKor" prefWidth="75.0" text="Adresa" />
-                                        <TableColumn fx:id="colPibKor" prefWidth="75.0" text="PIB" />
                                     </columns>
                                 </TableView>
                             </center>

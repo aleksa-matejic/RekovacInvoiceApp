@@ -25,6 +25,7 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
             <Label text="idKorisnik" />
@@ -36,13 +37,15 @@
             <TextField fx:id="tfIdKorisnik" GridPane.columnIndex="1" />
             <TextField fx:id="tfImeKor" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <TextField fx:id="tfPostaKor" GridPane.columnIndex="3" />
-            <TextField fx:id="ftMestoKor" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <TextField fx:id="tfMestoKor" GridPane.columnIndex="3" GridPane.rowIndex="1" />
             <TextField fx:id="tfAdresaKor" GridPane.columnIndex="5" />
             <TextField fx:id="tfPibKor" GridPane.columnIndex="5" GridPane.rowIndex="1" />
-            <Button mnemonicParsing="false" text="Uredi korisnika" GridPane.rowIndex="2" />
-            <Button mnemonicParsing="false" text="Sacuvaj korisnika" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <Button mnemonicParsing="false" text="Obrisi korisnika" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-            <Button fx:id="btnDodajRacun" mnemonicParsing="false" text="Dodaj racun korisniku" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+            <Button fx:id="btnUrediKorisnika" mnemonicParsing="false" text="Uredi korisnika" GridPane.rowIndex="2" />
+            <Button fx:id="btnSacuvajKorisnika" mnemonicParsing="false" text="Sacuvaj korisnika" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Button fx:id="btnObrisiKorisnika" mnemonicParsing="false" text="Obrisi korisnika" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <Button fx:id="btnDodajRacun" mnemonicParsing="false" text="Dodaj racun" GridPane.rowIndex="3" />
+            <Button fx:id="btnUrediRacun" mnemonicParsing="false" text="Uredi racun" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Button fx:id="btnObrisiRacun" mnemonicParsing="false" text="Obrisi racun" GridPane.columnIndex="2" GridPane.rowIndex="3" />
          </children>
       </GridPane>
    </top>
@@ -73,4 +76,19 @@
         </columns>
       </TableView>
    </center>
+   <bottom>
+      <GridPane BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+      </GridPane>
+   </bottom>
 </BorderPane>

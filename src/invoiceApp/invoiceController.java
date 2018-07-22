@@ -181,7 +181,6 @@ public class invoiceController implements Initializable
                 if (event.getClickCount() == 2 && (!row.isEmpty()))
                 {
                     KorisnikData rowData = row.getItem();
-                    System.out.println(rowData.getAdresa());
 
                     try
                     {

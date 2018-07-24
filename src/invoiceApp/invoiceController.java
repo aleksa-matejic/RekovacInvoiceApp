@@ -30,9 +30,17 @@ public class invoiceController implements Initializable
     @Override
     public void initialize(URL location, ResourceBundle resources)
     {
-        // addKorisnik();
         loadKorisnikData();
         loadFirmaData();
+
+        btnUrediFirmu.setOnAction(new EventHandler<ActionEvent>()
+        {
+            @Override
+            public void handle(ActionEvent e)
+            {
+                enableTextFields();
+            }
+        });
 
         btnSacuvajPromene.setOnAction(new EventHandler<ActionEvent>()
         {
@@ -40,6 +48,7 @@ public class invoiceController implements Initializable
             public void handle(ActionEvent e)
             {
                 updateFirma();
+                disableTextFields();
             }
         });
 
@@ -66,6 +75,53 @@ public class invoiceController implements Initializable
                 }
             }
         });
+
+        btnOsvezi.setOnAction(new EventHandler<ActionEvent>()
+        {
+            @Override
+            public void handle(ActionEvent e)
+            {
+                loadKorisnikData();
+            }
+        });
+
+        disableTextFields();
+    }
+
+    private void disableTextFields()
+    {
+        this.btnUrediFirmu.setDisable(false);
+        this.btnSacuvajPromene.setDisable(true);
+
+        this.tfIdFirma.setDisable(true);
+        this.tfImeFirme.setDisable(true);
+        this.tfPosta.setDisable(true);
+        this.tfMesto.setDisable(true);
+        this.tfAdresa.setDisable(true);
+        this.tfMaticniBroj.setDisable(true);
+        this.tfPib.setDisable(true);
+        this.tfSifraDelatnosti.setDisable(true);
+        this.tfTekuciRacun.setDisable(true);
+        this.tfKodBanke.setDisable(true);
+        this.tfEmail.setDisable(true);
+    }
+
+    private void enableTextFields()
+    {
+        this.btnUrediFirmu.setDisable(true);
+        this.btnSacuvajPromene.setDisable(false);
+
+        // this.tfIdFirma.setDisable(false);
+        this.tfImeFirme.setDisable(false);
+        this.tfPosta.setDisable(false);
+        this.tfMesto.setDisable(false);
+        this.tfAdresa.setDisable(false);
+        this.tfMaticniBroj.setDisable(false);
+        this.tfPib.setDisable(false);
+        this.tfSifraDelatnosti.setDisable(false);
+        this.tfTekuciRacun.setDisable(false);
+        this.tfKodBanke.setDisable(false);
+        this.tfEmail.setDisable(false);
     }
 
     // FIRM DATA TABLE
@@ -145,7 +201,7 @@ public class invoiceController implements Initializable
         this.tfKodBanke.setText(firmaData.get(0).getKodBanke());
         this.tfEmail.setText(firmaData.get(0).getEmail());
 
-        this.colIdFirma.setCellValueFactory(new PropertyValueFactory("idFirma"));
+        /*this.colIdFirma.setCellValueFactory(new PropertyValueFactory("idFirma"));
         this.colImeFirme.setCellValueFactory(new PropertyValueFactory("imeFirme"));
         this.colPosta.setCellValueFactory(new PropertyValueFactory("posta"));
         this.colMesto.setCellValueFactory(new PropertyValueFactory("mesto"));
@@ -158,7 +214,7 @@ public class invoiceController implements Initializable
         this.colEmail.setCellValueFactory(new PropertyValueFactory("email"));
 
         this.tvFirma.setItems(null);
-        this.tvFirma.setItems(this.firmaData);
+        this.tvFirma.setItems(this.firmaData);*/
     }
 
     // KORISNIK DATA TABLE
@@ -252,8 +308,6 @@ public class invoiceController implements Initializable
     }
 
 
-
-
     // FIRMA TEXT FIELDS
     @FXML
     private TextField tfIdFirma;
@@ -318,7 +372,11 @@ public class invoiceController implements Initializable
             stmt.executeUpdate();
             conn.close();
 
-            // Aleksa TODO: add confirmation message box
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Akcija uspesna!");
+            alert.setHeaderText("Azuriranje podataka o firmi uspesno!");
+            alert.setContentText("Molimo pritisnite OK.");
+            alert.showAndWait();
         } catch (SQLException ex)
         {
             ex.printStackTrace();
@@ -327,4 +385,7 @@ public class invoiceController implements Initializable
 
     @FXML
     private Button btnDodajKorisnika;
+
+    @FXML
+    private Button btnOsvezi;
 }

@@ -35,7 +35,11 @@
                         <GridPane BorderPane.alignment="CENTER">
                           <columnConstraints>
                             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                           </columnConstraints>
                           <rowConstraints>
                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -44,32 +48,10 @@
                           </rowConstraints>
                            <children>
                               <Button fx:id="btnDodajKorisnika" mnemonicParsing="false" text="Dodaj korisnika" GridPane.rowIndex="1" />
+                              <Button fx:id="btnOsvezi" mnemonicParsing="false" text="Osvezi" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                            </children>
                         </GridPane>
                      </top>
-                        </BorderPane>
-                    </content>
-                </Tab>
-                <Tab text="Firma">
-                    <content>
-                        <BorderPane>
-                            <center>
-                                <TableView fx:id="tvFirma" prefHeight="200.0" prefWidth="200.0">
-                                    <columns>
-                                        <TableColumn fx:id="colIdFirma" prefWidth="75.0" text="idFirma" />
-                                        <TableColumn fx:id="colImeFirme" prefWidth="75.0" text="Ime Firme" />
-                                        <TableColumn fx:id="colPosta" prefWidth="75.0" text="Posta" />
-                                        <TableColumn fx:id="colMesto" prefWidth="75.0" text="Mesto" />
-                                        <TableColumn fx:id="colAdresa" prefWidth="75.0" text="Adresa" />
-                                        <TableColumn fx:id="colMaticniBroj" prefWidth="75.0" text="Maticni Broj" />
-                                        <TableColumn fx:id="colPib" prefWidth="75.0" text="PIB" />
-                                        <TableColumn fx:id="colSifraDelatnosti" prefWidth="75.0" text="Sifra Delatnosti" />
-                                        <TableColumn fx:id="colTekuciRacun" prefWidth="75.0" text="Tekuci Racun" />
-                                        <TableColumn fx:id="colKodBanke" prefWidth="75.0" text="Kod Banke" />
-                                        <TableColumn fx:id="colEmail" prefWidth="75.0" text="Email" />
-                                    </columns>
-                                </TableView>
-                            </center>
                         </BorderPane>
                     </content>
                 </Tab>

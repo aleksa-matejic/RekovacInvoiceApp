@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
    <top>
       <GridPane BorderPane.alignment="CENTER">
         <columnConstraints>
@@ -41,12 +41,13 @@
             <TextField fx:id="tfAdresaKor" GridPane.columnIndex="5" />
             <TextField fx:id="tfPibKor" GridPane.columnIndex="5" GridPane.rowIndex="1" />
             <Button fx:id="btnUrediKorisnika" mnemonicParsing="false" text="Uredi korisnika" GridPane.rowIndex="2" />
-            <Button fx:id="btnSacuvajKorisnika" mnemonicParsing="false" text="Sacuvaj korisnika" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Button fx:id="btnSacuvajKorisnika" mnemonicParsing="false" text="Sacuvaj promene" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <Button fx:id="btnObrisiKorisnika" mnemonicParsing="false" text="Obrisi korisnika" GridPane.columnIndex="2" GridPane.rowIndex="2" />
             <Button fx:id="btnDodajRacun" mnemonicParsing="false" text="Dodaj racun" GridPane.rowIndex="3" />
             <Button fx:id="btnUrediRacun" mnemonicParsing="false" text="Uredi racun" GridPane.columnIndex="1" GridPane.rowIndex="3" />
             <Button fx:id="btnObrisiRacun" mnemonicParsing="false" text="Obrisi racun" GridPane.columnIndex="2" GridPane.rowIndex="3" />
             <Button fx:id="btnStampajRacun" mnemonicParsing="false" text="Stampaj racun" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+            <Button fx:id="btnOsvezi" mnemonicParsing="false" text="Osvezi" GridPane.columnIndex="3" GridPane.rowIndex="2" />
          </children>
       </GridPane>
    </top>

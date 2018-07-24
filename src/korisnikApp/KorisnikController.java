@@ -26,6 +26,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class KorisnikController implements Initializable
@@ -47,6 +48,8 @@ public class KorisnikController implements Initializable
         populateKorisnikTextFields();
 
         loadRacunData();
+
+        disableTextFields();
 
         btnDodajRacun.setOnAction(new EventHandler<ActionEvent>()
         {
@@ -95,10 +98,7 @@ public class KorisnikController implements Initializable
             @Override
             public void handle(ActionEvent e)
             {
-                // Aleksa TODO: uredi korisnika
-                System.out.println("UREDI KORISNIKA");
-
-
+                enableTextFields();
             }
         });
 
@@ -108,6 +108,7 @@ public class KorisnikController implements Initializable
             public void handle(ActionEvent e)
             {
                 sacuvajKorisnika();
+                disableTextFields();
             }
         });
 
@@ -152,6 +153,15 @@ public class KorisnikController implements Initializable
             });
             return row;
         });
+
+        btnOsvezi.setOnAction(new EventHandler<ActionEvent>()
+        {
+            @Override
+            public void handle(ActionEvent e)
+            {
+                loadRacunData();
+            }
+        });
     }
 
     // KORISNIK DATA
@@ -181,6 +191,32 @@ public class KorisnikController implements Initializable
         this.tfMestoKor.setText(this.korisnikData.getMesto());
         this.tfAdresaKor.setText(this.korisnikData.getAdresa());
         this.tfPibKor.setText(this.korisnikData.getPib());
+    }
+
+    private void enableTextFields()
+    {
+        this.btnUrediKorisnika.setDisable(true);
+        this.btnSacuvajKorisnika.setDisable(false);
+
+        // this.tfIdKorisnik.setDisable(false);
+        this.tfImeKor.setDisable(false);
+        this.tfPostaKor.setDisable(false);
+        this.tfMestoKor.setDisable(false);
+        this.tfAdresaKor.setDisable(false);
+        this.tfPibKor.setDisable(false);
+    }
+
+    private void disableTextFields()
+    {
+        this.btnUrediKorisnika.setDisable(false);
+        this.btnSacuvajKorisnika.setDisable(true);
+
+        this.tfIdKorisnik.setDisable(true);
+        this.tfImeKor.setDisable(true);
+        this.tfPostaKor.setDisable(true);
+        this.tfMestoKor.setDisable(true);
+        this.tfAdresaKor.setDisable(true);
+        this.tfPibKor.setDisable(true);
     }
 
     // RACUN DATA TABLE
@@ -310,24 +346,41 @@ public class KorisnikController implements Initializable
 
     private void obrisiRacun()
     {
-        String sql = "DELETE FROM racun WHERE idRacun = ?";
-        try
+        if (selectedRacunData == null)
         {
-            if (selectedRacunData == null)
+            return;
+        }
+
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Potvrdite akciju!");
+        alert.setHeaderText("Obrisati korisnikov racun?");
+        alert.setContentText("Da li ste sigurni?");
+
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.get() == ButtonType.OK)
+        {
+            String sql = "DELETE FROM racun WHERE idRacun = ?";
+            try
             {
-                return;
+                Connection conn = dbConnection.getConnection();
+                PreparedStatement stmt = conn.prepareStatement(sql);
+
+                stmt.setString(1, selectedRacunData.getIdRacun());
+
+                stmt.executeUpdate();
+                conn.close();
+
+                alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Akcija uspesna!");
+                alert.setHeaderText("Racun uspesno obrisan!");
+                alert.setContentText("Molimo pritisnite OK.");
+                alert.showAndWait();
+
+                // ALEKSA TODO: BUG obrisati racun da nema ni jedan i onda stisnuti uredi
+            } catch (SQLException ex)
+            {
+                ex.printStackTrace();
             }
-
-            Connection conn = dbConnection.getConnection();
-            PreparedStatement stmt = conn.prepareStatement(sql);
-
-            stmt.setString(1, selectedRacunData.getIdRacun());
-
-            stmt.executeUpdate();
-            conn.close();
-        } catch (SQLException ex)
-        {
-            ex.printStackTrace();
         }
     }
 
@@ -371,7 +424,12 @@ public class KorisnikController implements Initializable
             stmt.executeUpdate();
             conn.close();
 
-            // Aleksa TODO: add confirmation message box
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Akcija uspesna!");
+            alert.setHeaderText("Azuriranje korisnika uspesno!");
+            alert.setContentText("Molimo pritisnite OK.");
+            alert.showAndWait();
+
         } catch (SQLException ex)
         {
             ex.printStackTrace();
@@ -380,36 +438,53 @@ public class KorisnikController implements Initializable
 
     private void obrisiKorisnika()
     {
-        String sql = "DELETE FROM korisnik WHERE idKorisnik = ?";
-        try
-        {
-            Connection conn = dbConnection.getConnection();
-            PreparedStatement stmt = conn.prepareStatement(sql);
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Potvrdite akciju!");
+        alert.setHeaderText("Obrisati korisnika i sve njegove racune?");
+        alert.setContentText("Da li ste sigurni?");
 
-            stmt.setString(1, korisnikData.getIdKorisnik());
-
-            stmt.executeUpdate();
-            conn.close();
-        } catch (SQLException ex)
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.get() == ButtonType.OK)
         {
-            ex.printStackTrace();
+            String sql = "DELETE FROM korisnik WHERE idKorisnik = ?";
+            try
+            {
+                Connection conn = dbConnection.getConnection();
+                PreparedStatement stmt = conn.prepareStatement(sql);
+
+                stmt.setString(1, korisnikData.getIdKorisnik());
+
+                stmt.executeUpdate();
+                conn.close();
+            } catch (SQLException ex)
+            {
+                ex.printStackTrace();
+            }
+
+            sql = "DELETE FROM racun WHERE idKorisnik = ?";
+            try
+            {
+                Connection conn = dbConnection.getConnection();
+                PreparedStatement stmt = conn.prepareStatement(sql);
+
+                stmt.setString(1, korisnikData.getIdKorisnik());
+
+                stmt.executeUpdate();
+                conn.close();
+            } catch (SQLException ex)
+            {
+                ex.printStackTrace();
+            }
+
+            alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Akcija uspesna!");
+            alert.setHeaderText("Korisnik uspesno obrisan!");
+            alert.setContentText("Molimo pritisnite OK.");
+            alert.showAndWait();
+
+            Stage stage = (Stage) btnObrisiKorisnika.getScene().getWindow();
+            stage.close();
         }
-
-        sql = "DELETE FROM racun WHERE idKorisnik = ?";
-        try
-        {
-            Connection conn = dbConnection.getConnection();
-            PreparedStatement stmt = conn.prepareStatement(sql);
-
-            stmt.setString(1, korisnikData.getIdKorisnik());
-
-            stmt.executeUpdate();
-            conn.close();
-        } catch (SQLException ex)
-        {
-            ex.printStackTrace();
-        }
-        // Aleksa TODO: add confirmation message box
     }
 
 
@@ -433,4 +508,7 @@ public class KorisnikController implements Initializable
 
     @FXML
     private Button btnObrisiKorisnika;
+
+    @FXML
+    private Button btnOsvezi;
 }

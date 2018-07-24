@@ -5,8 +5,10 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 import java.net.URL;
 import java.sql.Connection;
@@ -51,6 +53,15 @@ public class DodajKorisnikaController implements Initializable
 
             stmt.execute();
             conn.close();
+
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Akcija uspesna!");
+            alert.setHeaderText("Unos korisnika uspesan!");
+            alert.setContentText("Molimo pritisnite OK.");
+            alert.showAndWait();
+
+            Stage stage = (Stage) btnDodajKorisnika.getScene().getWindow();
+            stage.close();
         } catch (SQLException ex)
         {
             ex.printStackTrace();

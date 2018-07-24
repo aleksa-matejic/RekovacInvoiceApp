@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <top>
       <GridPane BorderPane.alignment="CENTER">
         <columnConstraints>
@@ -46,6 +46,7 @@
             <Button fx:id="btnDodajRacun" mnemonicParsing="false" text="Dodaj racun" GridPane.rowIndex="3" />
             <Button fx:id="btnUrediRacun" mnemonicParsing="false" text="Uredi racun" GridPane.columnIndex="1" GridPane.rowIndex="3" />
             <Button fx:id="btnObrisiRacun" mnemonicParsing="false" text="Obrisi racun" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+            <Button fx:id="btnStampajRacun" mnemonicParsing="false" text="Stampaj racun" GridPane.columnIndex="3" GridPane.rowIndex="3" />
          </children>
       </GridPane>
    </top>

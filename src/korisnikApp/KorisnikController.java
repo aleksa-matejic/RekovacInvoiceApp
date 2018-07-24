@@ -2,6 +2,7 @@ package korisnikApp;
 
 import dbUtil.dbConnection;
 import dodajRacunApp.DodajRacunController;
+import invoiceApp.FirmaData;
 import invoiceApp.KorisnikData;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -15,6 +16,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import net.sf.jasperreports.engine.JRException;
+import report.InvoicePrintReport;
 import urediRacunApp.UrediRacunController;
 
 import java.io.IOException;
@@ -28,12 +31,14 @@ import java.util.ResourceBundle;
 public class KorisnikController implements Initializable
 {
     KorisnikData korisnikData;
+    FirmaData firmaData;
 
     RacunData selectedRacunData = null;
 
-    public KorisnikController(KorisnikData korisnikData)
+    public KorisnikController(KorisnikData korisnikData, FirmaData firmaData)
     {
         this.korisnikData = korisnikData;
+        this.firmaData = firmaData;
     }
 
     @Override
@@ -90,7 +95,10 @@ public class KorisnikController implements Initializable
             @Override
             public void handle(ActionEvent e)
             {
+                // Aleksa TODO: uredi korisnika
                 System.out.println("UREDI KORISNIKA");
+
+
             }
         });
 
@@ -109,6 +117,26 @@ public class KorisnikController implements Initializable
             public void handle(ActionEvent e)
             {
                 obrisiKorisnika();
+            }
+        });
+
+        btnStampajRacun.setOnAction(new EventHandler<ActionEvent>()
+        {
+            @Override
+            public void handle(ActionEvent e)
+            {
+                try
+                {
+                    if (selectedRacunData == null)
+                    {
+                        return;
+                    }
+                    // --- Show Jasper Report on click-----
+                    new InvoicePrintReport().showReport(selectedRacunData, korisnikData, firmaData);
+                } catch (ClassNotFoundException | JRException | SQLException e1)
+                {
+                    e1.printStackTrace();
+                }
             }
         });
 
@@ -285,7 +313,7 @@ public class KorisnikController implements Initializable
         String sql = "DELETE FROM racun WHERE idRacun = ?";
         try
         {
-            if(selectedRacunData == null)
+            if (selectedRacunData == null)
             {
                 return;
             }
@@ -316,7 +344,6 @@ public class KorisnikController implements Initializable
             fxmlLoader.setController(controller);
             Parent root = fxmlLoader.load();
             Stage stage = new Stage();
-            // Aleksa TODO: add ime korisnika maybe
             stage.setTitle(selectedRacunData.getBrojRacuna());
             stage.setScene(new Scene(root));
             stage.show();
@@ -382,6 +409,7 @@ public class KorisnikController implements Initializable
         {
             ex.printStackTrace();
         }
+        // Aleksa TODO: add confirmation message box
     }
 
 
@@ -393,6 +421,9 @@ public class KorisnikController implements Initializable
 
     @FXML
     private Button btnUrediRacun;
+
+    @FXML
+    private Button btnStampajRacun;
 
     @FXML
     private Button btnUrediKorisnika;

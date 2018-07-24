@@ -1,16 +1,17 @@
 package invoiceApp;
 
 import dbUtil.dbConnection;
+import dodajKorisnikaApp.DodajKorisnikaController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableRow;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import korisnikApp.KorisnikController;
@@ -32,6 +33,39 @@ public class invoiceController implements Initializable
         // addKorisnik();
         loadKorisnikData();
         loadFirmaData();
+
+        btnSacuvajPromene.setOnAction(new EventHandler<ActionEvent>()
+        {
+            @Override
+            public void handle(ActionEvent e)
+            {
+                updateFirma();
+            }
+        });
+
+        btnDodajKorisnika.setOnAction(new EventHandler<ActionEvent>()
+        {
+            @Override
+            public void handle(ActionEvent e)
+            {
+                try
+                {
+                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/dodajKorisnikaApp/dodajKorisnika.fxml"));
+                    DodajKorisnikaController controller = new DodajKorisnikaController();
+                    fxmlLoader.setController(controller);
+                    Parent root = fxmlLoader.load();
+                    Stage stage = new Stage();
+                    stage.setTitle("Dodaj korisnika");
+                    stage.setScene(new Scene(root));
+                    stage.show();
+                    // Hide this current window (if this is what you want)
+                    // ((Node)(event.getSource())).getScene().getWindow().hide();
+                } catch (IOException ex)
+                {
+                    ex.printStackTrace();
+                }
+            }
+        });
     }
 
     // FIRM DATA TABLE
@@ -98,6 +132,18 @@ public class invoiceController implements Initializable
         {
             e.printStackTrace();
         }
+
+        this.tfIdFirma.setText(firmaData.get(0).getIdFirma());
+        this.tfImeFirme.setText(firmaData.get(0).getImeFirme());
+        this.tfPosta.setText(firmaData.get(0).getPosta());
+        this.tfMesto.setText(firmaData.get(0).getMesto());
+        this.tfAdresa.setText(firmaData.get(0).getAdresa());
+        this.tfMaticniBroj.setText(firmaData.get(0).getMaticniBroj());
+        this.tfPib.setText(firmaData.get(0).getPib());
+        this.tfSifraDelatnosti.setText(firmaData.get(0).getSifraDelatnosti());
+        this.tfTekuciRacun.setText(firmaData.get(0).getTekuciRacun());
+        this.tfKodBanke.setText(firmaData.get(0).getKodBanke());
+        this.tfEmail.setText(firmaData.get(0).getEmail());
 
         this.colIdFirma.setCellValueFactory(new PropertyValueFactory("idFirma"));
         this.colImeFirme.setCellValueFactory(new PropertyValueFactory("imeFirme"));
@@ -185,11 +231,10 @@ public class invoiceController implements Initializable
                     try
                     {
                         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/korisnikApp/korisnik.fxml"));
-                        KorisnikController controller = new KorisnikController(rowData);
+                        KorisnikController controller = new KorisnikController(rowData, firmaData.get(0));
                         fxmlLoader.setController(controller);
                         Parent root = fxmlLoader.load();
                         Stage stage = new Stage();
-                        // Aleksa TODO: add ime korisnika maybe
                         stage.setTitle(rowData.getIme());
                         stage.setScene(new Scene(root));
                         stage.show();
@@ -200,7 +245,6 @@ public class invoiceController implements Initializable
                         e.printStackTrace();
                     }
 
-
                 }
             });
             return row;
@@ -208,26 +252,79 @@ public class invoiceController implements Initializable
     }
 
 
-    // ADD KORISNIK
-    private void addKorisnik()
+
+
+    // FIRMA TEXT FIELDS
+    @FXML
+    private TextField tfIdFirma;
+
+    @FXML
+    private TextField tfImeFirme;
+
+    @FXML
+    private TextField tfPosta;
+
+    @FXML
+    private TextField tfMesto;
+
+    @FXML
+    private TextField tfAdresa;
+
+    @FXML
+    private TextField tfMaticniBroj;
+
+    @FXML
+    private TextField tfPib;
+
+    @FXML
+    private TextField tfSifraDelatnosti;
+
+    @FXML
+    private TextField tfTekuciRacun;
+
+    @FXML
+    private TextField tfKodBanke;
+
+    @FXML
+    private TextField tfEmail;
+
+    @FXML
+    private Button btnUrediFirmu;
+
+    @FXML
+    private Button btnSacuvajPromene;
+
+    private void updateFirma()
     {
-        String sql = "INSERT INTO `korisnik`(`ime`, `posta`, `mesto`, `adresa`, `pib`) VALUES (?, ?, ?, ?, ?)";
+        String sql = "UPDATE firma SET imeFirme = ?, posta = ?, mesto = ?, adresa = ?, maticniBroj = ?, pib = ?, " +
+                "sifraDelatnosti = ?, tekuciRacun = ?, kodBanke = ?, email = ? WHERE idFirma = ?";
         try
         {
             Connection conn = dbConnection.getConnection();
             PreparedStatement stmt = conn.prepareStatement(sql);
 
-            stmt.setString(1, "Mihailo Matejic");
-            stmt.setString(2, "11000");
-            stmt.setString(3, "Kaludjerica");
-            stmt.setString(4, "Stevana Sidnelica 57a");
-            stmt.setString(5, "1051065106");
+            stmt.setString(1, tfImeFirme.getText());
+            stmt.setString(2, tfPosta.getText());
+            stmt.setString(3, tfMesto.getText());
+            stmt.setString(4, tfAdresa.getText());
+            stmt.setString(5, tfMaticniBroj.getText());
+            stmt.setString(6, tfPib.getText());
+            stmt.setString(7, tfSifraDelatnosti.getText());
+            stmt.setString(8, tfTekuciRacun.getText());
+            stmt.setString(9, tfKodBanke.getText());
+            stmt.setString(10, tfEmail.getText());
+            stmt.setString(11, firmaData.get(0).getIdFirma());
 
-            stmt.execute();
+            stmt.executeUpdate();
             conn.close();
+
+            // Aleksa TODO: add confirmation message box
         } catch (SQLException ex)
         {
             ex.printStackTrace();
         }
     }
+
+    @FXML
+    private Button btnDodajKorisnika;
 }

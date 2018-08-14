@@ -288,6 +288,9 @@ public class KorisnikController implements Initializable
     @FXML
     private TableColumn<RacunData, String> colIdKorisnik;
 
+    @FXML
+    private TableColumn<RacunData, String> colNapomena;
+
     private void loadRacunData()
     {
         try
@@ -307,7 +310,7 @@ public class KorisnikController implements Initializable
                         rs.getString(12), rs.getString(13), rs.getString(14),
                         rs.getString(15), rs.getString(16), rs.getString(17),
                         rs.getString(18), rs.getString(19), rs.getString(20),
-                        rs.getString(21)));
+                        rs.getString(21), rs.getString(22)));
             }
 
             conn.close();
@@ -338,6 +341,7 @@ public class KorisnikController implements Initializable
         this.colZaUplatu.setCellValueFactory(new PropertyValueFactory("zaUplatu"));
         this.colSlovima.setCellValueFactory(new PropertyValueFactory("slovima"));
         this.colIdKorisnik.setCellValueFactory(new PropertyValueFactory("idKorisnik"));
+        this.colNapomena.setCellValueFactory(new PropertyValueFactory("napomena"));
 
 
         this.tvRacun.setItems(null);

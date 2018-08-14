@@ -1,10 +1,13 @@
 package report;
 
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 import java.io.InputStream;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 
 import invoiceApp.FirmaData;
@@ -24,6 +27,15 @@ public class InvoicePrintReport extends JFrame
 
     public void showReport(RacunData racunData, KorisnikData korisnikData, FirmaData firmaData) throws JRException, ClassNotFoundException, SQLException
     {
+        BufferedImage image = null;
+        try
+        {
+            image = ImageIO.read(getClass().getResource("/images/RekovacIcon.png"));
+        } catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+
         // First, compile jrxml file.
         InputStream is = this.getClass().getResourceAsStream("/report/RekovacInvoiceReport.jrxml");
         JasperReport jasperReport = JasperCompileManager.compileReport(is);
@@ -61,10 +73,13 @@ public class InvoicePrintReport extends JFrame
         parameters.put("maticniBroj", firmaData.getMaticniBroj());
         parameters.put("sifraDelatnosti", firmaData.getSifraDelatnosti());
         parameters.put("pibFirma", firmaData.getPib());
-        // Aleksa TODO: NEMA NAPOMENE
-        parameters.put("napomena", "Нема");
+        // Aleksa TODO: NEMA NAPOMENE sada ima!!!
+        // parameters.put("napomena", "Нема");
+        parameters.put("napomena", racunData.getNapomena());
         parameters.put("tekuciRacun", firmaData.getTekuciRacun());
         parameters.put("kodBanke", firmaData.getKodBanke());
+
+        parameters.put("logo", image);
 
         ArrayList<HashMap<String, Object>> list = new ArrayList<HashMap<String, Object>>();
         list.add(parameters);

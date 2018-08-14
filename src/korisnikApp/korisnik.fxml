@@ -75,6 +75,7 @@
             <TableColumn fx:id="colZaUplatu" prefWidth="75.0" text="Za uplatu" />
             <TableColumn fx:id="colSlovima" prefWidth="75.0" text="Slovima" />
             <TableColumn fx:id="colIdKorisnik" prefWidth="75.0" text="idKorisnik" />
+            <TableColumn fx:id="colNapomena" prefWidth="75.0" text="Napomena" />
         </columns>
       </TableView>
    </center>

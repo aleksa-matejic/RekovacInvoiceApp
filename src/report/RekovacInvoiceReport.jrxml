@@ -41,7 +41,8 @@
         <band height="135" splitType="Stretch">
             <image>
                 <reportElement x="20" y="0" width="140" height="80" uuid="4ea73dce-34bd-4229-a3b5-0e0964a126be"/>
-                <imageExpression><![CDATA["C:/Code/RekovacInvoiceApp/src/images/RekovacIcon.png"]]></imageExpression>
+                <!--imageExpression><![CDATA["C:/Code/RekovacInvoiceApp/src/images/RekovacIcon.png"]]></imageExpression-->
+                <imageExpression><![CDATA["C:/RekovacIcon.png"]]></imageExpression>
             </image>
             <staticText>
                 <reportElement x="210" y="0" width="270" height="40" uuid="87c6cead-b959-44e4-b403-d3276fc65544"/>
@@ -162,7 +163,7 @@
                 <textFieldExpression><![CDATA[$F{datumPrometa}]]></textFieldExpression>
             </textField>
             <rectangle>
-                <reportElement x="310" y="0" width="247" height="79" uuid="ea6532d5-7ab1-4f8e-acf7-19b71c499edd"/>
+                <reportElement x="300" y="0" width="256" height="99" uuid="ea6532d5-7ab1-4f8e-acf7-19b71c499edd"/>
             </rectangle>
             <textField>
                 <reportElement x="311" y="0" width="246" height="19" uuid="6372139b-8f68-4185-b6bd-ab4b52a0e070"/>
@@ -195,7 +196,7 @@
         </band>
     </pageHeader>
     <columnHeader>
-        <band height="160" splitType="Stretch">
+        <band height="172" splitType="Stretch">
             <staticText>
                 <reportElement x="0" y="10" width="30" height="20" uuid="0b217479-8e26-4585-9f5c-2926c6ba4a79"/>
                 <textElement>
@@ -211,7 +212,7 @@
                 <text><![CDATA[Назив]]></text>
             </staticText>
             <staticText>
-                <reportElement x="110" y="10" width="50" height="20" uuid="e29b610e-a68a-4309-856d-fba255c6ee3d"/>
+                <reportElement x="130" y="10" width="30" height="20" uuid="e29b610e-a68a-4309-856d-fba255c6ee3d"/>
                 <textElement>
                     <font isBold="true"/>
                 </textElement>
@@ -264,11 +265,11 @@
                 <textFieldExpression><![CDATA[$F{redniBroj}]]></textFieldExpression>
             </textField>
             <textField>
-                <reportElement x="30" y="30" width="80" height="31" uuid="e045f827-e644-4266-8e4c-0ad420f3f1a5"/>
+                <reportElement x="30" y="30" width="100" height="31" uuid="e045f827-e644-4266-8e4c-0ad420f3f1a5"/>
                 <textFieldExpression><![CDATA[$F{naziv}]]></textFieldExpression>
             </textField>
             <textField>
-                <reportElement x="110" y="30" width="50" height="18" uuid="2858c9a7-992d-41a9-9a80-0fc7fc324442"/>
+                <reportElement x="130" y="30" width="30" height="18" uuid="2858c9a7-992d-41a9-9a80-0fc7fc324442"/>
                 <textFieldExpression><![CDATA[$F{jm}]]></textFieldExpression>
             </textField>
             <textField>
@@ -288,11 +289,12 @@
                 <textFieldExpression><![CDATA[$F{cenaSaPdv}]]></textFieldExpression>
             </textField>
             <textField>
-                <reportElement x="450" y="30" width="50" height="18" uuid="04244e93-e0bb-42b2-9a65-7041f31da1fe"/>
+                <reportElement x="450" y="30" width="30" height="18" uuid="04244e93-e0bb-42b2-9a65-7041f31da1fe"/>
                 <textFieldExpression><![CDATA[$F{pdv}]]></textFieldExpression>
             </textField>
             <textField>
-                <reportElement x="505" y="30" width="50" height="18" uuid="a30e72fe-73af-4c56-bb57-08b1e60bbfae"/>
+                <reportElement x="490" y="30" width="64" height="18" uuid="a30e72fe-73af-4c56-bb57-08b1e60bbfae"/>
+                <textElement textAlignment="Right"/>
                 <textFieldExpression><![CDATA[$F{iznos}]]></textFieldExpression>
             </textField>
             <line>
@@ -345,16 +347,12 @@
                 <text><![CDATA[Износ пореза]]></text>
             </staticText>
             <staticText>
-                <reportElement x="180" y="120" width="60" height="20" uuid="3c5d4067-c000-43e4-af46-7be05deb223c"/>
+                <reportElement x="180" y="135" width="60" height="20" uuid="3c5d4067-c000-43e4-af46-7be05deb223c"/>
                 <text><![CDATA[Укупно]]></text>
             </staticText>
             <textField>
                 <reportElement x="0" y="95" width="120" height="35" uuid="7d8c9ef7-15d2-4c23-84e7-7c02ec7940bb"/>
                 <textFieldExpression><![CDATA[$F{nazivDazbine}]]></textFieldExpression>
-            </textField>
-            <textField>
-                <reportElement x="120" y="95" width="50" height="20" uuid="ea976293-5ceb-4296-b724-8aa7b5a5c87a"/>
-                <textFieldExpression><![CDATA[$F{pdv}]]></textFieldExpression>
             </textField>
             <textField>
                 <reportElement x="180" y="95" width="60" height="20" uuid="015196ea-08cb-48ac-bcd1-2adf555663c2"/>
@@ -365,7 +363,7 @@
                 <textFieldExpression><![CDATA[$F{iznosPoreza}]]></textFieldExpression>
             </textField>
             <textField>
-                <reportElement x="240" y="121" width="70" height="18" uuid="0044a73f-fe39-43e1-acb0-f1a364312712"/>
+                <reportElement x="240" y="136" width="70" height="18" uuid="0044a73f-fe39-43e1-acb0-f1a364312712"/>
                 <textFieldExpression><![CDATA[$F{iznosPoreza}]]></textFieldExpression>
             </textField>
             <textField>
@@ -386,7 +384,7 @@
                 <reportElement x="0" y="95" width="309" height="1" uuid="a9c16e90-13fc-4cd3-999a-c2d5139b2e64"/>
             </line>
             <line>
-                <reportElement x="0" y="115" width="309" height="1" uuid="71627701-92c2-4bf4-8338-5d3f50c6edba"/>
+                <reportElement x="0" y="130" width="309" height="1" uuid="71627701-92c2-4bf4-8338-5d3f50c6edba"/>
             </line>
             <textField>
                 <reportElement x="480" y="100" width="74" height="20" uuid="2eaa84a2-74bb-4c25-8b26-e5766e6475fd"/>
@@ -394,6 +392,10 @@
                     <font size="12" isBold="true"/>
                 </textElement>
                 <textFieldExpression><![CDATA[$F{zaUplatu}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="120" y="95" width="50" height="18" uuid="140a4025-4cb5-4768-b51d-b8dba81c7c24"/>
+                <textFieldExpression><![CDATA[$F{pdvProcenat}]]></textFieldExpression>
             </textField>
         </band>
     </columnHeader>
@@ -450,7 +452,7 @@
                 <text><![CDATA[Напомена о пореском ослобођењу:]]></text>
             </staticText>
             <textField>
-                <reportElement x="170" y="40" width="110" height="18" uuid="a637e8fd-ac56-415d-af38-f432c050023d">
+                <reportElement x="170" y="40" width="210" height="18" uuid="a637e8fd-ac56-415d-af38-f432c050023d">
                     <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="71626341-c3bd-4054-92dd-ed767dd259ac"/>
                 </reportElement>
                 <textFieldExpression><![CDATA[$F{napomena}]]></textFieldExpression>
@@ -463,10 +465,13 @@
                 <reportElement x="70" y="60" width="100" height="18" uuid="4c1edcba-8ec4-48f2-b50d-e9da661da727">
                     <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="cf8338fd-a926-49a6-9e41-c8dbfb082680"/>
                 </reportElement>
+                <textElement>
+                    <font isBold="true"/>
+                </textElement>
                 <textFieldExpression><![CDATA[$F{tekuciRacun}]]></textFieldExpression>
             </textField>
             <textField>
-                <reportElement x="170" y="60" width="100" height="18" uuid="a9b4c001-84bb-4d6c-a6ad-081b0f28a8a2">
+                <reportElement x="170" y="60" width="210" height="18" uuid="a9b4c001-84bb-4d6c-a6ad-081b0f28a8a2">
                     <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="77d85d54-78a6-42f3-a4ba-39a9a81d0df3"/>
                 </reportElement>
                 <textFieldExpression><![CDATA[$F{kodBanke}]]></textFieldExpression>

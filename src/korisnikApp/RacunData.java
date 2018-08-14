@@ -26,11 +26,12 @@ public class RacunData
     private final StringProperty zaUplatu;
     private final StringProperty slovima;
     private final StringProperty idKorisnik;
+    private final StringProperty napomena;
 
     public RacunData(String idRacun, String brojRacuna, String pozivNaBroj, String datumIzdavanja, String mestoIzdavanja,
                      String dospeva, String datumPrometa, String redniBroj, String naziv, String jm, String kolicina,
                      String cena, String pdvProcenat, String cenaSaPdv, String pdv, String iznos, String nazivDazbine,
-                     String iznosPoreza, String zaUplatu, String slovima, String idKorisnik)
+                     String iznosPoreza, String zaUplatu, String slovima, String idKorisnik, String napomena)
     {
         this.idRacun = new SimpleStringProperty(idRacun);
         this.brojRacuna = new SimpleStringProperty(brojRacuna);
@@ -53,6 +54,7 @@ public class RacunData
         this.zaUplatu = new SimpleStringProperty(zaUplatu);
         this.slovima = new SimpleStringProperty(slovima);
         this.idKorisnik = new SimpleStringProperty(idKorisnik);
+        this.napomena = new SimpleStringProperty(napomena);
     }
 
     public String getIdRacun()
@@ -368,5 +370,20 @@ public class RacunData
     public void setIdKorisnik(String idKorisnik)
     {
         this.idKorisnik.set(idKorisnik);
+    }
+
+    public String getNapomena()
+    {
+        return napomena.get();
+    }
+
+    public StringProperty napomenaProperty()
+    {
+        return napomena;
+    }
+
+    public void setNapomena(String napomena)
+    {
+        this.napomena.set(napomena);
     }
 }

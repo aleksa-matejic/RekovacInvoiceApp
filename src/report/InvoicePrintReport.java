@@ -27,6 +27,9 @@ public class InvoicePrintReport extends JFrame
 
     public void showReport(RacunData racunData, KorisnikData korisnikData, FirmaData firmaData) throws JRException, ClassNotFoundException, SQLException
     {
+        // Fields for report
+        HashMap<String, Object> parameters = new HashMap<String, Object>();
+
         BufferedImage image = null;
         try
         {
@@ -37,10 +40,26 @@ public class InvoicePrintReport extends JFrame
         }
 
         // First, compile jrxml file.
-        InputStream is = this.getClass().getResourceAsStream("/report/RekovacInvoiceReport.jrxml");
+        InputStream is = null;
+
+        if (racunData.getNapomena().isEmpty())
+        {
+            is = this.getClass().getResourceAsStream("/report/RekovacInvoiceReport.jrxml");
+        }
+        else
+        {
+            is = this.getClass().getResourceAsStream("/report/RekovacInvoiceReportNapomena.jrxml");
+            parameters.put("napomena", racunData.getNapomena());
+        }
+
+        if (!korisnikData.getDug().isEmpty())
+        {
+            is = this.getClass().getResourceAsStream("/report/RekovacInvoiceReportDug.jrxml");
+            parameters.put("dug", korisnikData.getDug());
+            parameters.put("dugPlusUplata", dugPlusUplata(korisnikData.getDug(), racunData.getZaUplatu()));
+        }
+
         JasperReport jasperReport = JasperCompileManager.compileReport(is);
-        // Fields for report
-        HashMap<String, Object> parameters = new HashMap<String, Object>();
 
         parameters.put("racunBroj", racunData.getBrojRacuna());
         parameters.put("pozivNaBroj", racunData.getPozivNaBroj());
@@ -73,9 +92,8 @@ public class InvoicePrintReport extends JFrame
         parameters.put("maticniBroj", firmaData.getMaticniBroj());
         parameters.put("sifraDelatnosti", firmaData.getSifraDelatnosti());
         parameters.put("pibFirma", firmaData.getPib());
-        // Aleksa TODO: NEMA NAPOMENE sada ima!!!
-        // parameters.put("napomena", "Нема");
-        parameters.put("napomena", racunData.getNapomena());
+
+        parameters.put("napomenaOPO", racunData.getNapomenaOPO());
         parameters.put("tekuciRacun", firmaData.getTekuciRacun());
         parameters.put("kodBanke", firmaData.getKodBanke());
 
@@ -93,5 +111,26 @@ public class InvoicePrintReport extends JFrame
         this.setSize(700, 500);
         this.setVisible(true);
         System.out.print("Done!");
+    }
+
+    private String dugPlusUplata(String dug, String zaUplatu)
+    {
+        Double sum = getDoubleFromString(dug) + getDoubleFromString(zaUplatu);
+
+        String tmp = String.format("%,.2f", sum);
+        tmp = tmp.replace("," , " ");
+        tmp = tmp.replace("." , ",");
+        tmp = tmp.replace(" " , ".");
+
+        return tmp;
+    }
+
+    private Double getDoubleFromString(String numberString)
+    {
+        numberString = numberString.replace(".", "");
+        numberString = numberString.replace(",", ".");
+
+        // Aleksa TODO: crash if string is not number
+        return Double.parseDouble(numberString);
     }
 }

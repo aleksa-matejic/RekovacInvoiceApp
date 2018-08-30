@@ -28,6 +28,7 @@
                                         <TableColumn fx:id="colMestoKor" prefWidth="75.0" text="Mesto" />
                                         <TableColumn fx:id="colAdresaKor" prefWidth="75.0" text="Adresa" />
                                         <TableColumn fx:id="colPibKor" prefWidth="75.0" text="PIB" />
+                              <TableColumn fx:id="colDug" prefWidth="75.0" text="Dug iz prethodnog perioda" />
                                     </columns>
                                 </TableView>
                             </center>

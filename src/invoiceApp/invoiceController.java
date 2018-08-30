@@ -241,6 +241,9 @@ public class invoiceController implements Initializable
     @FXML
     private TableColumn<KorisnikData, String> colPibKor;
 
+    @FXML
+    private TableColumn<KorisnikData, String> colDug;
+
     private void loadKorisnikData()
     {
         try
@@ -255,7 +258,7 @@ public class invoiceController implements Initializable
             {
                 this.korisnikData.add(new KorisnikData(rs.getString(1), rs.getString(2),
                         rs.getString(3), rs.getString(4), rs.getString(5),
-                        rs.getString(6)));
+                        rs.getString(6), rs.getString(7)));
             }
 
             conn.close();
@@ -271,6 +274,7 @@ public class invoiceController implements Initializable
         this.colMestoKor.setCellValueFactory(new PropertyValueFactory("mesto"));
         this.colAdresaKor.setCellValueFactory(new PropertyValueFactory("adresa"));
         this.colPibKor.setCellValueFactory(new PropertyValueFactory("pib"));
+        this.colDug.setCellValueFactory(new PropertyValueFactory("dug"));
 
         this.tvKorisnik.setItems(null);
         this.tvKorisnik.setItems(this.korisnikData);

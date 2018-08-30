@@ -27,11 +27,12 @@ public class RacunData
     private final StringProperty slovima;
     private final StringProperty idKorisnik;
     private final StringProperty napomena;
+    private final StringProperty napomenaOPO;
 
     public RacunData(String idRacun, String brojRacuna, String pozivNaBroj, String datumIzdavanja, String mestoIzdavanja,
                      String dospeva, String datumPrometa, String redniBroj, String naziv, String jm, String kolicina,
                      String cena, String pdvProcenat, String cenaSaPdv, String pdv, String iznos, String nazivDazbine,
-                     String iznosPoreza, String zaUplatu, String slovima, String idKorisnik, String napomena)
+                     String iznosPoreza, String zaUplatu, String slovima, String idKorisnik, String napomena, String napomenaOPO)
     {
         this.idRacun = new SimpleStringProperty(idRacun);
         this.brojRacuna = new SimpleStringProperty(brojRacuna);
@@ -55,6 +56,7 @@ public class RacunData
         this.slovima = new SimpleStringProperty(slovima);
         this.idKorisnik = new SimpleStringProperty(idKorisnik);
         this.napomena = new SimpleStringProperty(napomena);
+        this.napomenaOPO = new SimpleStringProperty(napomenaOPO);
     }
 
     public String getIdRacun()
@@ -385,5 +387,20 @@ public class RacunData
     public void setNapomena(String napomena)
     {
         this.napomena.set(napomena);
+    }
+
+    public String getNapomenaOPO()
+    {
+        return napomenaOPO.get();
+    }
+
+    public StringProperty napomenaOPOProperty()
+    {
+        return napomenaOPO;
+    }
+
+    public void setNapomenaOPO(String napomenaOPO)
+    {
+        this.napomenaOPO.set(napomenaOPO);
     }
 }

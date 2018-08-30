@@ -94,6 +94,9 @@ public class DodajRacunController implements Initializable
     private TextField tfNapomena;
 
     @FXML
+    private TextField tfNapomenaOPO;
+
+    @FXML
     private DatePicker dpDatumIzdavanja;
 
     @FXML
@@ -107,7 +110,7 @@ public class DodajRacunController implements Initializable
         String sql = "INSERT INTO `racun`(`brojRacuna`, `pozivNaBroj`, `datumIzdavanja`, `mestoIzdavanja`, `dospeva`," +
                 " `datumPrometa`, `redniBroj`, `naziv`, `jm`, `kolicina`, " +
                 "`cena`, `pdvProcenat`, `cenaSaPdv`, `pdv`, `iznos`, `" +
-                "nazivDazbine`, `iznosPoreza`, `zaUplatu`, `slovima`, `idKorisnik`, `napomena`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                "nazivDazbine`, `iznosPoreza`, `zaUplatu`, `slovima`, `idKorisnik`, `napomena`, `napomenaOPO`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try
         {
             Connection conn = dbConnection.getConnection();
@@ -137,6 +140,7 @@ public class DodajRacunController implements Initializable
             stmt.setString(19, tfSlovima.getText());
             stmt.setString(20, idKorisnik);
             stmt.setString(21, tfNapomena.getText());
+            stmt.setString(22, tfNapomenaOPO.getText());
 
             stmt.execute();
             conn.close();

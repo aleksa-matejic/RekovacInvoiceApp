@@ -98,6 +98,9 @@ public class UrediRacunController implements Initializable
     private TextField tfNapomena;
 
     @FXML
+    private TextField tfNapomenaOPO;
+
+    @FXML
     private DatePicker dpDatumIzdavanja;
 
     @FXML
@@ -132,6 +135,7 @@ public class UrediRacunController implements Initializable
         tfSlovima.setText(racunData.getSlovima());
 
         tfNapomena.setText(racunData.getNapomena());
+        tfNapomenaOPO.setText(racunData.getNapomenaOPO());
     }
 
     private void sacuvajIzmene()
@@ -140,7 +144,7 @@ public class UrediRacunController implements Initializable
                 "datumPrometa = ?, redniBroj = ?, naziv = ?, jm = ?, kolicina = ?, " +
                 "cena = ?, pdvProcenat = ?, cenaSaPdv = ?, pdv = ?, iznos = ?," +
                 "nazivDazbine = ?, iznosPoreza = ?, zaUplatu = ?, slovima = ?, " +
-                "napomena = ? " +
+                "napomena = ?, napomenaOPO = ? " +
                 "WHERE idRacun = ?";
 
         try
@@ -172,8 +176,9 @@ public class UrediRacunController implements Initializable
             stmt.setString(19, tfSlovima.getText());
 
             stmt.setString(20, tfNapomena.getText());
+            stmt.setString(21, tfNapomenaOPO.getText());
 
-            stmt.setString(21, racunData.getIdRacun());
+            stmt.setString(22, racunData.getIdRacun());
 
 
             stmt.executeUpdate();

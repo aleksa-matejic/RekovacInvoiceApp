@@ -34,6 +34,8 @@
     <field name="napomenaOPO" class="java.lang.String"/>
     <field name="tekuciRacun" class="java.lang.String"/>
     <field name="kodBanke" class="java.lang.String"/>
+    <field name="dug" class="java.lang.String"/>
+    <field name="dugPlusUplata" class="java.lang.String"/>
     <background>
         <band splitType="Stretch"/>
     </background>
@@ -195,7 +197,7 @@
         </band>
     </pageHeader>
     <columnHeader>
-        <band height="172" splitType="Stretch">
+        <band height="177" splitType="Stretch">
             <staticText>
                 <reportElement x="0" y="10" width="30" height="20" uuid="0b217479-8e26-4585-9f5c-2926c6ba4a79"/>
                 <textElement>
@@ -396,10 +398,38 @@
                 <reportElement x="120" y="95" width="50" height="18" uuid="140a4025-4cb5-4768-b51d-b8dba81c7c24"/>
                 <textFieldExpression><![CDATA[$F{pdvProcenat}]]></textFieldExpression>
             </textField>
+            <staticText>
+                <reportElement x="311" y="120" width="169" height="20" uuid="1d5a372f-e56c-40d6-ae13-f74426ff0122"/>
+                <textElement textAlignment="Right">
+                    <font size="12" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Дуг из претходног периода:]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="311" y="140" width="169" height="20" uuid="21b5f34f-c258-4ac3-8c88-b9453f989cb4"/>
+                <textElement textAlignment="Right">
+                    <font size="12" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Укупно за уплату:]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="480" y="120" width="74" height="20" uuid="d649e423-54df-4e5f-a0eb-54f970e373cc"/>
+                <textElement textAlignment="Right">
+                    <font size="12" isBold="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{dug}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="480" y="140" width="74" height="20" uuid="f69399f5-17b7-47b3-a1f6-f12f882b45fb"/>
+                <textElement textAlignment="Right">
+                    <font size="12" isBold="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{dugPlusUplata}]]></textFieldExpression>
+            </textField>
         </band>
     </columnHeader>
     <detail>
-        <band height="99" splitType="Stretch">
+        <band height="100" splitType="Stretch">
             <staticText>
                 <reportElement x="0" y="0" width="60" height="20" uuid="af6bb3c7-bb13-48cb-82fa-3161a1677343"/>
                 <textElement>

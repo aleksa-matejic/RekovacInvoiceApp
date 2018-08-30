@@ -183,6 +183,9 @@ public class KorisnikController implements Initializable
     @FXML
     private TextField tfPibKor;
 
+    @FXML
+    private TextField tfDug;
+
     private void populateKorisnikTextFields()
     {
         this.tfIdKorisnik.setText(this.korisnikData.getIdKorisnik());
@@ -191,6 +194,7 @@ public class KorisnikController implements Initializable
         this.tfMestoKor.setText(this.korisnikData.getMesto());
         this.tfAdresaKor.setText(this.korisnikData.getAdresa());
         this.tfPibKor.setText(this.korisnikData.getPib());
+        this.tfDug.setText(this.korisnikData.getDug());
     }
 
     private void enableTextFields()
@@ -204,6 +208,7 @@ public class KorisnikController implements Initializable
         this.tfMestoKor.setDisable(false);
         this.tfAdresaKor.setDisable(false);
         this.tfPibKor.setDisable(false);
+        this.tfDug.setDisable(false);
     }
 
     private void disableTextFields()
@@ -217,6 +222,7 @@ public class KorisnikController implements Initializable
         this.tfMestoKor.setDisable(true);
         this.tfAdresaKor.setDisable(true);
         this.tfPibKor.setDisable(true);
+        this.tfDug.setDisable(true);
     }
 
     // RACUN DATA TABLE
@@ -291,6 +297,9 @@ public class KorisnikController implements Initializable
     @FXML
     private TableColumn<RacunData, String> colNapomena;
 
+    @FXML
+    private TableColumn<RacunData, String> colNapomenaOPO;
+
     private void loadRacunData()
     {
         try
@@ -310,7 +319,7 @@ public class KorisnikController implements Initializable
                         rs.getString(12), rs.getString(13), rs.getString(14),
                         rs.getString(15), rs.getString(16), rs.getString(17),
                         rs.getString(18), rs.getString(19), rs.getString(20),
-                        rs.getString(21), rs.getString(22)));
+                        rs.getString(21), rs.getString(22), rs.getString(23)));
             }
 
             conn.close();
@@ -342,6 +351,7 @@ public class KorisnikController implements Initializable
         this.colSlovima.setCellValueFactory(new PropertyValueFactory("slovima"));
         this.colIdKorisnik.setCellValueFactory(new PropertyValueFactory("idKorisnik"));
         this.colNapomena.setCellValueFactory(new PropertyValueFactory("napomena"));
+        this.colNapomenaOPO.setCellValueFactory(new PropertyValueFactory("napomenaOPO"));
 
 
         this.tvRacun.setItems(null);
@@ -412,7 +422,7 @@ public class KorisnikController implements Initializable
 
     private void sacuvajKorisnika()
     {
-        String sql = "UPDATE korisnik SET ime = ?, posta = ?, mesto = ?, adresa = ?, pib = ? WHERE idKorisnik = ?";
+        String sql = "UPDATE korisnik SET ime = ?, posta = ?, mesto = ?, adresa = ?, pib = ?, dug = ? WHERE idKorisnik = ?";
         try
         {
             Connection conn = dbConnection.getConnection();
@@ -423,7 +433,8 @@ public class KorisnikController implements Initializable
             stmt.setString(3, tfMestoKor.getText());
             stmt.setString(4, tfAdresaKor.getText());
             stmt.setString(5, tfPibKor.getText());
-            stmt.setString(6, korisnikData.getIdKorisnik());
+            stmt.setString(6, tfDug.getText());
+            stmt.setString(7, korisnikData.getIdKorisnik());
 
             stmt.executeUpdate();
             conn.close();

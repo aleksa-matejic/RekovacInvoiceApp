@@ -11,8 +11,9 @@ public class KorisnikData
     private final StringProperty mesto;
     private final StringProperty adresa;
     private final StringProperty pib;
+    private final StringProperty dug;
 
-    public KorisnikData(String idKorisnik, String ime, String posta, String mesto, String adresa, String pib)
+    public KorisnikData(String idKorisnik, String ime, String posta, String mesto, String adresa, String pib, String dug)
     {
         this.idKorisnik = new SimpleStringProperty(idKorisnik);
         this.ime = new SimpleStringProperty(ime);
@@ -20,6 +21,7 @@ public class KorisnikData
         this.mesto = new SimpleStringProperty(mesto);
         this.adresa = new SimpleStringProperty(adresa);
         this.pib = new SimpleStringProperty(pib);
+        this.dug = new SimpleStringProperty(dug);
     }
 
     public String getIdKorisnik()
@@ -110,5 +112,20 @@ public class KorisnikData
     public void setPib(String pib)
     {
         this.pib.set(pib);
+    }
+
+    public String getDug()
+    {
+        return dug.get();
+    }
+
+    public StringProperty dugProperty()
+    {
+        return dug;
+    }
+
+    public void setDug(String dug)
+    {
+        this.dug.set(dug);
     }
 }

@@ -15,6 +15,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import net.sf.jasperreports.engine.JRException;
 import report.InvoicePrintReport;
@@ -63,6 +64,7 @@ public class KorisnikController implements Initializable
                     fxmlLoader.setController(controller);
                     Parent root = fxmlLoader.load();
                     Stage stage = new Stage();
+                    stage.getIcons().add(new Image(getClass().getResourceAsStream("/images/RekovacIcon.png")));
                     stage.setTitle(korisnikData.getIme());
                     stage.setScene(new Scene(root));
                     stage.show();
@@ -411,6 +413,7 @@ public class KorisnikController implements Initializable
             fxmlLoader.setController(controller);
             Parent root = fxmlLoader.load();
             Stage stage = new Stage();
+            stage.getIcons().add(new Image(getClass().getResourceAsStream("/images/RekovacIcon.png")));
             stage.setTitle(selectedRacunData.getBrojRacuna());
             stage.setScene(new Scene(root));
             stage.show();

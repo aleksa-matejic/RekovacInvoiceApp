@@ -13,6 +13,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import korisnikApp.KorisnikController;
 
@@ -64,6 +65,7 @@ public class invoiceController implements Initializable
                     fxmlLoader.setController(controller);
                     Parent root = fxmlLoader.load();
                     Stage stage = new Stage();
+                    stage.getIcons().add(new Image(getClass().getResourceAsStream("/images/RekovacIcon.png")));
                     stage.setTitle("Dodaj korisnika");
                     stage.setScene(new Scene(root));
                     stage.show();
@@ -295,6 +297,7 @@ public class invoiceController implements Initializable
                         fxmlLoader.setController(controller);
                         Parent root = fxmlLoader.load();
                         Stage stage = new Stage();
+                        stage.getIcons().add(new Image(getClass().getResourceAsStream("/images/RekovacIcon.png")));
                         stage.setTitle(rowData.getIme());
                         stage.setScene(new Scene(root));
                         stage.show();

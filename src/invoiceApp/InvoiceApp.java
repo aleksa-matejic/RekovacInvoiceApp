@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import java.time.LocalDateTime;
 
@@ -30,6 +31,7 @@ public class InvoiceApp extends Application
         Parent root = (Parent) FXMLLoader.load(getClass().getResource("invoice.fxml"));
 
         Scene scene = new Scene(root);
+        stage.getIcons().add(new Image(getClass().getResourceAsStream("/images/RekovacIcon.png")));
         stage.setScene(scene);
         stage.setTitle("Rekovac Invoice App");
         stage.show();

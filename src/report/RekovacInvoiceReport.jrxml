@@ -34,6 +34,7 @@
     <field name="napomenaOPO" class="java.lang.String"/>
     <field name="tekuciRacun" class="java.lang.String"/>
     <field name="kodBanke" class="java.lang.String"/>
+    <field name="logo" class="java.awt.image.BufferedImage"/>
     <background>
         <band splitType="Stretch"/>
     </background>
@@ -41,7 +42,7 @@
         <band height="135" splitType="Stretch">
             <image>
                 <reportElement x="20" y="0" width="140" height="80" uuid="4ea73dce-34bd-4229-a3b5-0e0964a126be"/>
-                <imageExpression><![CDATA["C:/Code/RekovacInvoiceApp/src/images/RekovacIcon.png"]]></imageExpression>
+                <imageExpression><![CDATA[$F{logo}]]></imageExpression>
             </image>
             <staticText>
                 <reportElement x="210" y="0" width="270" height="40" uuid="87c6cead-b959-44e4-b403-d3276fc65544"/>

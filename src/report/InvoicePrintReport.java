@@ -27,14 +27,23 @@ public class InvoicePrintReport extends JFrame
 
     public void showReport(RacunData racunData, KorisnikData korisnikData, FirmaData firmaData) throws JRException, SQLException, IOException, FontFormatException {
         GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+
         InputStream isNormalFont = this.getClass().getResourceAsStream("/report/DejaVuSans.ttf");
         Font normalFont = Font.createFont(Font.TRUETYPE_FONT, isNormalFont);
 
         InputStream isBoldFont = this.getClass().getResourceAsStream("/report/DejaVuSans-Bold.ttf");
         Font boldFont = Font.createFont(Font.TRUETYPE_FONT, isBoldFont);
 
+        InputStream isObliqueFont = this.getClass().getResourceAsStream("/report/DejaVuSans-Oblique.ttf");
+        Font obliqueFont = Font.createFont(Font.TRUETYPE_FONT, isObliqueFont);
+
+        InputStream isBoldObliqueFont = this.getClass().getResourceAsStream("/report/DejaVuSans-BoldOblique.ttf");
+        Font boldObliqueFont = Font.createFont(Font.TRUETYPE_FONT, isBoldObliqueFont);
+
         ge.registerFont(normalFont);
         ge.registerFont(boldFont);
+        ge.registerFont(obliqueFont);
+        ge.registerFont(boldObliqueFont);
 
         // Fields for report
         HashMap<String, Object> parameters = new HashMap<String, Object>();

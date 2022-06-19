@@ -530,14 +530,14 @@
 				<textFieldExpression><![CDATA[$F{pibFirma}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="0" y="40" width="170" height="19" uuid="d9e4122d-cf09-40fb-b4a9-86104ef113ed"/>
+				<reportElement x="0" y="40" width="210" height="19" uuid="d9e4122d-cf09-40fb-b4a9-86104ef113ed"/>
 				<textElement>
 					<font fontName="DejaVu Sans" pdfFontName="/report/DejaVuSans.ttf" pdfEncoding="Cp1251" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[Напомена о пореском ослобођењу:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="170" y="40" width="210" height="18" uuid="a637e8fd-ac56-415d-af38-f432c050023d">
+				<reportElement x="210" y="40" width="210" height="18" uuid="a637e8fd-ac56-415d-af38-f432c050023d">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="71626341-c3bd-4054-92dd-ed767dd259ac"/>
 				</reportElement>
 				<textElement>
@@ -546,14 +546,14 @@
 				<textFieldExpression><![CDATA[$F{napomenaOPO}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="0" y="60" width="70" height="19" uuid="a6050cdc-1e34-4675-8aa5-36eaaa4ab475"/>
+				<reportElement x="0" y="60" width="90" height="19" uuid="a6050cdc-1e34-4675-8aa5-36eaaa4ab475"/>
 				<textElement>
 					<font fontName="DejaVu Sans" pdfFontName="/report/DejaVuSans.ttf" pdfEncoding="Cp1251" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[Текући рачун:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="70" y="60" width="100" height="18" uuid="4c1edcba-8ec4-48f2-b50d-e9da661da727">
+				<reportElement x="90" y="60" width="100" height="18" uuid="4c1edcba-8ec4-48f2-b50d-e9da661da727">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="cf8338fd-a926-49a6-9e41-c8dbfb082680"/>
 				</reportElement>
 				<textElement>
@@ -562,7 +562,7 @@
 				<textFieldExpression><![CDATA[$F{tekuciRacun}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="170" y="60" width="210" height="18" uuid="a9b4c001-84bb-4d6c-a6ad-081b0f28a8a2">
+				<reportElement x="190" y="60" width="210" height="18" uuid="a9b4c001-84bb-4d6c-a6ad-081b0f28a8a2">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="77d85d54-78a6-42f3-a4ba-39a9a81d0df3"/>
 				</reportElement>
 				<textElement>
@@ -599,7 +599,7 @@
 				<text><![CDATA[Тел:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="19" y="50" width="142" height="19" uuid="c79d082b-7166-4c44-9f25-a9157adc0802"/>
+				<reportElement x="19" y="50" width="161" height="19" uuid="c79d082b-7166-4c44-9f25-a9157adc0802"/>
 				<textElement>
 					<font fontName="DejaVu Sans" size="8" pdfFontName="/report/DejaVuSans.ttf" pdfEncoding="Cp1251" isPdfEmbedded="true"/>
 				</textElement>

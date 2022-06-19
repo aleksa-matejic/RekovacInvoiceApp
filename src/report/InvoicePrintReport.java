@@ -1,8 +1,8 @@
 package report;
 
+import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -25,8 +25,17 @@ public class InvoicePrintReport extends JFrame
 {
     private static final long serialVersionUID = 1L;
 
-    public void showReport(RacunData racunData, KorisnikData korisnikData, FirmaData firmaData) throws JRException, ClassNotFoundException, SQLException
-    {
+    public void showReport(RacunData racunData, KorisnikData korisnikData, FirmaData firmaData) throws JRException, SQLException, IOException, FontFormatException {
+        GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+        InputStream isNormalFont = this.getClass().getResourceAsStream("/report/DejaVuSans.ttf");
+        Font normalFont = Font.createFont(Font.TRUETYPE_FONT, isNormalFont);
+
+        InputStream isBoldFont = this.getClass().getResourceAsStream("/report/DejaVuSans-Bold.ttf");
+        Font boldFont = Font.createFont(Font.TRUETYPE_FONT, isBoldFont);
+
+        ge.registerFont(normalFont);
+        ge.registerFont(boldFont);
+
         // Fields for report
         HashMap<String, Object> parameters = new HashMap<String, Object>();
 
@@ -110,7 +119,6 @@ public class InvoicePrintReport extends JFrame
         this.add(viewer);
         this.setSize(700, 500);
         this.setVisible(true);
-        System.out.print("Done!");
     }
 
     private String dugPlusUplata(String dug, String zaUplatu)

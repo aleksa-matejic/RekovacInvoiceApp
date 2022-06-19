@@ -14,6 +14,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
@@ -21,6 +23,7 @@ import net.sf.jasperreports.engine.JRException;
 import report.InvoicePrintReport;
 import urediRacunApp.UrediRacunController;
 
+import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
@@ -136,9 +139,13 @@ public class KorisnikController implements Initializable
                     }
                     // --- Show Jasper Report on click-----
                     new InvoicePrintReport().showReport(selectedRacunData, korisnikData, firmaData);
-                } catch (ClassNotFoundException | JRException | SQLException e1)
+                } catch (JRException | SQLException e1)
                 {
                     e1.printStackTrace();
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                } catch (FontFormatException ex) {
+                    throw new RuntimeException(ex);
                 }
             }
         });

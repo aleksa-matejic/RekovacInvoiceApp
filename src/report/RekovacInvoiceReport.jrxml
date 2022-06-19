@@ -1,537 +1,636 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<!-- Created with Jaspersoft Studio version 6.19.1.final using JasperReports Library version 6.19.1-867c00bf88cd4d784d404379d6c05e1b419e8a4c  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RekovacInvoiceReport" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="4f2ab8c6-d957-4e27-aad1-e636d0071fb5">
-    <property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
-    <queryString>
-        <![CDATA[]]>
-    </queryString>
-    <field name="racunBroj" class="java.lang.String"/>
-    <field name="datumIzdavanjaRacuna" class="java.lang.String"/>
-    <field name="mestoIzdavanjaRacuna" class="java.lang.String"/>
-    <field name="dospeva" class="java.lang.String"/>
-    <field name="datumPrometa" class="java.lang.String"/>
-    <field name="pozivNaBroj" class="java.lang.String"/>
-    <field name="ime" class="java.lang.String"/>
-    <field name="adresa" class="java.lang.String"/>
-    <field name="posta_i_mesto" class="java.lang.String"/>
-    <field name="pib" class="java.lang.String"/>
-    <field name="redniBroj" class="java.lang.String"/>
-    <field name="naziv" class="java.lang.String"/>
-    <field name="jm" class="java.lang.String"/>
-    <field name="kolicina" class="java.lang.String"/>
-    <field name="cena" class="java.lang.String"/>
-    <field name="pdvProcenat" class="java.lang.String"/>
-    <field name="cenaSaPdv" class="java.lang.String"/>
-    <field name="pdv" class="java.lang.String"/>
-    <field name="iznos" class="java.lang.String"/>
-    <field name="nazivDazbine" class="java.lang.String"/>
-    <field name="iznosPoreza" class="java.lang.String"/>
-    <field name="zaUplatu" class="java.lang.String"/>
-    <field name="slovima" class="java.lang.String"/>
-    <field name="maticniBroj" class="java.lang.String"/>
-    <field name="sifraDelatnosti" class="java.lang.String"/>
-    <field name="pibFirma" class="java.lang.String"/>
-    <field name="napomenaOPO" class="java.lang.String"/>
-    <field name="tekuciRacun" class="java.lang.String"/>
-    <field name="kodBanke" class="java.lang.String"/>
-    <field name="logo" class="java.awt.image.BufferedImage"/>
-    <background>
-        <band splitType="Stretch"/>
-    </background>
-    <title>
-        <band height="135" splitType="Stretch">
-            <image>
-                <reportElement x="20" y="0" width="140" height="80" uuid="4ea73dce-34bd-4229-a3b5-0e0964a126be"/>
-                <imageExpression><![CDATA[$F{logo}]]></imageExpression>
-            </image>
-            <staticText>
-                <reportElement x="210" y="0" width="270" height="40" uuid="87c6cead-b959-44e4-b403-d3276fc65544"/>
-                <textElement>
-                    <font size="24" isBold="true"/>
-                </textElement>
-                <text><![CDATA["ТМГ ГРЕЈАЊЕ" д.о.о]]></text>
-            </staticText>
-            <staticText>
-                <reportElement x="210" y="40" width="270" height="30" uuid="43c717de-5775-4471-aa6a-fef0fd948f60"/>
-                <textElement>
-                    <font size="14"/>
-                </textElement>
-                <text><![CDATA[35260 Рековац, Краља Петра Првог 115]]></text>
-            </staticText>
-            <staticText>
-                <reportElement x="180" y="60" width="330" height="30" uuid="38208ede-1314-40ef-ab64-f5670ac437bd"/>
-                <textElement>
-                    <font size="14"/>
-                </textElement>
-                <text><![CDATA[м.б. 21139599, ПИБ 109190786, шифра дел. 3530]]></text>
-            </staticText>
-            <staticText>
-                <reportElement x="252" y="80" width="186" height="30" uuid="43169390-c617-48da-b6e0-ea5d388dd8ea"/>
-                <textElement>
-                    <font size="14"/>
-                </textElement>
-                <text><![CDATA[Текући рачун: 150-25750-03]]></text>
-            </staticText>
-            <staticText>
-                <reportElement x="240" y="97" width="210" height="30" uuid="9f3079f1-901e-46f5-a962-9529050aea85"/>
-                <textElement>
-                    <font size="14"/>
-                </textElement>
-                <text><![CDATA[e-mail: tmg.grejanje@gmail.com]]></text>
-            </staticText>
-            <line>
-                <reportElement x="-3" y="120" width="560" height="1" uuid="8752f915-57c2-4848-811c-a7170178d883"/>
-            </line>
-        </band>
-    </title>
-    <pageHeader>
-        <band height="119" splitType="Stretch">
-            <staticText>
-                <reportElement x="0" y="0" width="180" height="30" uuid="2c04eefd-acb9-415e-a8b3-f36b6648058b"/>
-                <textElement textAlignment="Right">
-                    <font size="14" isBold="true"/>
-                </textElement>
-                <text><![CDATA[РАЧУН бр:]]></text>
-            </staticText>
-            <staticText>
-                <reportElement x="0" y="20" width="180" height="18" uuid="60e70d15-ef74-4ac0-bf2e-4691bb629853"/>
-                <textElement textAlignment="Right">
-                    <font size="10"/>
-                </textElement>
-                <text><![CDATA[Позив на број:]]></text>
-            </staticText>
-            <staticText>
-                <reportElement x="0" y="50" width="178" height="30" uuid="c13b3900-1f60-4d69-8e2b-f498039815dd"/>
-                <textElement textAlignment="Right"/>
-                <text><![CDATA[Место издавања рачуна:]]></text>
-            </staticText>
-            <staticText>
-                <reportElement x="0" y="70" width="179" height="30" uuid="a4dc5ef3-e6ab-44fe-8fa5-224625d36148"/>
-                <textElement textAlignment="Right"/>
-                <text><![CDATA[Датум промета добара и услуга:]]></text>
-            </staticText>
-            <staticText>
-                <reportElement x="0" y="60" width="179" height="30" uuid="fcac2e81-351a-43c0-bcee-1aa6d047de37"/>
-                <textElement textAlignment="Right"/>
-                <text><![CDATA[Доспева:]]></text>
-            </staticText>
-            <staticText>
-                <reportElement x="0" y="40" width="179" height="30" uuid="84dbfcc9-f6fb-4f00-9f5e-7e2d9caccfee"/>
-                <textElement textAlignment="Right"/>
-                <text><![CDATA[Датум издавања рачуна:]]></text>
-            </staticText>
-            <textField>
-                <reportElement x="190" y="0" width="100" height="30" uuid="ddcc1b69-5d62-4624-ab2b-4407ed1302de"/>
-                <textElement>
-                    <font size="14" isBold="true"/>
-                </textElement>
-                <textFieldExpression><![CDATA[$F{racunBroj}]]></textFieldExpression>
-            </textField>
-            <textField>
-                <reportElement x="190" y="20" width="100" height="19" uuid="99d66c97-a00d-4c6a-b5b1-2d54fb3f65fd"/>
-                <textElement>
-                    <font isBold="true"/>
-                </textElement>
-                <textFieldExpression><![CDATA[$F{pozivNaBroj}]]></textFieldExpression>
-            </textField>
-            <textField>
-                <reportElement x="190" y="40" width="160" height="30" uuid="38c09be1-a1c1-4f60-90f6-ebcf1711b4d7"/>
-                <textElement>
-                    <font isBold="true"/>
-                </textElement>
-                <textFieldExpression><![CDATA[$F{datumIzdavanjaRacuna}]]></textFieldExpression>
-            </textField>
-            <textField>
-                <reportElement x="190" y="50" width="160" height="30" uuid="b099f385-6b0b-488b-8394-442068de8e0d"/>
-                <textElement>
-                    <font isBold="true"/>
-                </textElement>
-                <textFieldExpression><![CDATA[$F{mestoIzdavanjaRacuna}]]></textFieldExpression>
-            </textField>
-            <textField>
-                <reportElement x="190" y="60" width="160" height="30" uuid="90a998b9-5b42-4bc5-9161-842f377309ac"/>
-                <textElement>
-                    <font isBold="true"/>
-                </textElement>
-                <textFieldExpression><![CDATA[$F{dospeva}]]></textFieldExpression>
-            </textField>
-            <textField>
-                <reportElement x="190" y="70" width="160" height="30" uuid="744366ca-0981-4757-90b6-2ee5a712dd26"/>
-                <textElement>
-                    <font isBold="true"/>
-                </textElement>
-                <textFieldExpression><![CDATA[$F{datumPrometa}]]></textFieldExpression>
-            </textField>
-            <rectangle>
-                <reportElement x="300" y="0" width="256" height="99" uuid="ea6532d5-7ab1-4f8e-acf7-19b71c499edd"/>
-            </rectangle>
-            <textField>
-                <reportElement x="311" y="0" width="246" height="19" uuid="6372139b-8f68-4185-b6bd-ab4b52a0e070"/>
-                <textElement textAlignment="Center">
-                    <font size="12" isBold="true"/>
-                </textElement>
-                <textFieldExpression><![CDATA[$F{ime}]]></textFieldExpression>
-            </textField>
-            <textField>
-                <reportElement x="311" y="17" width="244" height="18" uuid="6fdc9de4-efda-4d3a-99db-1bc391d37bc3"/>
-                <textElement textAlignment="Center">
-                    <font isBold="true"/>
-                </textElement>
-                <textFieldExpression><![CDATA[$F{adresa}]]></textFieldExpression>
-            </textField>
-            <textField>
-                <reportElement x="311" y="28" width="246" height="30" uuid="83a4ff56-1b4f-4fab-bcaa-9b2bf0f321a3"/>
-                <textElement textAlignment="Center">
-                    <font isBold="true"/>
-                </textElement>
-                <textFieldExpression><![CDATA[$F{posta_i_mesto}]]></textFieldExpression>
-            </textField>
-            <textField>
-                <reportElement x="311" y="38" width="244" height="30" uuid="252505f7-825a-48df-9405-1df54979d0b5"/>
-                <textElement textAlignment="Center">
-                    <font isBold="true"/>
-                </textElement>
-                <textFieldExpression><![CDATA[$F{pib}]]></textFieldExpression>
-            </textField>
-        </band>
-    </pageHeader>
-    <columnHeader>
-        <band height="172" splitType="Stretch">
-            <staticText>
-                <reportElement x="0" y="10" width="30" height="20" uuid="0b217479-8e26-4585-9f5c-2926c6ba4a79"/>
-                <textElement>
-                    <font isBold="true"/>
-                </textElement>
-                <text><![CDATA[Рб]]></text>
-            </staticText>
-            <staticText>
-                <reportElement x="30" y="10" width="50" height="20" uuid="cc35c8ad-f128-4e0d-a1c6-5e450d3efae2"/>
-                <textElement>
-                    <font isBold="true"/>
-                </textElement>
-                <text><![CDATA[Назив]]></text>
-            </staticText>
-            <staticText>
-                <reportElement x="130" y="10" width="30" height="20" uuid="e29b610e-a68a-4309-856d-fba255c6ee3d"/>
-                <textElement>
-                    <font isBold="true"/>
-                </textElement>
-                <text><![CDATA[ЈМ]]></text>
-            </staticText>
-            <staticText>
-                <reportElement x="160" y="10" width="50" height="20" uuid="b63615e9-7fde-4a30-aee5-dbe23824ccee"/>
-                <textElement>
-                    <font isBold="true"/>
-                </textElement>
-                <text><![CDATA[Количина]]></text>
-            </staticText>
-            <staticText>
-                <reportElement x="220" y="10" width="50" height="20" uuid="fc83627e-23ac-487b-afb0-e1f9f19ae8dd"/>
-                <textElement>
-                    <font isBold="true"/>
-                </textElement>
-                <text><![CDATA[Цена]]></text>
-            </staticText>
-            <staticText>
-                <reportElement x="290" y="10" width="50" height="20" uuid="74d01d5a-6d69-488e-92b2-6f0cc7de8d9f"/>
-                <textElement>
-                    <font isBold="true"/>
-                </textElement>
-                <text><![CDATA[ПДВ%]]></text>
-            </staticText>
-            <staticText>
-                <reportElement x="360" y="10" width="70" height="20" uuid="dfaf3b57-f513-49c4-a11c-9b3324ef2a82"/>
-                <textElement>
-                    <font isBold="true"/>
-                </textElement>
-                <text><![CDATA[Цена са ПДВ]]></text>
-            </staticText>
-            <staticText>
-                <reportElement x="450" y="10" width="50" height="20" uuid="23c9e4ca-e7a5-4a0a-9ed8-19fe79c06a0c"/>
-                <textElement>
-                    <font isBold="true"/>
-                </textElement>
-                <text><![CDATA[ПДВ]]></text>
-            </staticText>
-            <staticText>
-                <reportElement x="505" y="10" width="50" height="20" uuid="776d077f-08d8-4352-8e63-132bc8005385"/>
-                <textElement>
-                    <font isBold="true"/>
-                </textElement>
-                <text><![CDATA[Износ]]></text>
-            </staticText>
-            <textField>
-                <reportElement x="0" y="30" width="30" height="18" uuid="7fcb7ddb-3906-403b-8557-2ad1ba6529b4"/>
-                <textFieldExpression><![CDATA[$F{redniBroj}]]></textFieldExpression>
-            </textField>
-            <textField>
-                <reportElement x="30" y="30" width="100" height="31" uuid="e045f827-e644-4266-8e4c-0ad420f3f1a5"/>
-                <textFieldExpression><![CDATA[$F{naziv}]]></textFieldExpression>
-            </textField>
-            <textField>
-                <reportElement x="130" y="30" width="30" height="18" uuid="2858c9a7-992d-41a9-9a80-0fc7fc324442"/>
-                <textFieldExpression><![CDATA[$F{jm}]]></textFieldExpression>
-            </textField>
-            <textField>
-                <reportElement x="160" y="30" width="50" height="18" uuid="74ed38f1-8f6f-4d71-9b59-c538855061bd"/>
-                <textFieldExpression><![CDATA[$F{kolicina}]]></textFieldExpression>
-            </textField>
-            <textField>
-                <reportElement x="220" y="30" width="50" height="18" uuid="1aaf40e8-c3bb-4898-a69e-2d1b97f970a8"/>
-                <textFieldExpression><![CDATA[$F{cena}]]></textFieldExpression>
-            </textField>
-            <textField>
-                <reportElement x="290" y="30" width="50" height="18" uuid="c91d0add-e2a3-46a6-bd9d-dd3e4fda8dbb"/>
-                <textFieldExpression><![CDATA[$F{pdvProcenat}]]></textFieldExpression>
-            </textField>
-            <textField>
-                <reportElement x="360" y="30" width="70" height="18" uuid="7294807f-40f8-41bc-984d-e1b2cd063009"/>
-                <textFieldExpression><![CDATA[$F{cenaSaPdv}]]></textFieldExpression>
-            </textField>
-            <textField>
-                <reportElement x="450" y="30" width="30" height="18" uuid="04244e93-e0bb-42b2-9a65-7041f31da1fe"/>
-                <textFieldExpression><![CDATA[$F{pdv}]]></textFieldExpression>
-            </textField>
-            <textField>
-                <reportElement x="490" y="30" width="64" height="18" uuid="a30e72fe-73af-4c56-bb57-08b1e60bbfae"/>
-                <textElement textAlignment="Right"/>
-                <textFieldExpression><![CDATA[$F{iznos}]]></textFieldExpression>
-            </textField>
-            <line>
-                <reportElement x="0" y="10" width="560" height="1" uuid="079258ab-893d-45a8-9a9c-f2cebfe47e97"/>
-            </line>
-            <line>
-                <reportElement x="0" y="29" width="560" height="1" uuid="0f3206fc-e3b5-466f-baef-22b25c27adcb"/>
-            </line>
-            <line>
-                <reportElement x="0" y="60" width="560" height="1" uuid="67f54bf7-1e68-4c2b-88ea-ba997b1793fe"/>
-            </line>
-            <staticText>
-                <reportElement x="430" y="60" width="50" height="20" uuid="3852169b-44d4-47e0-afdc-d5916d6feb60"/>
-                <textElement textAlignment="Right">
-                    <font size="12" isBold="true"/>
-                </textElement>
-                <text><![CDATA[Укупно:]]></text>
-            </staticText>
-            <staticText>
-                <reportElement x="430" y="80" width="50" height="20" uuid="14653c43-1c45-450e-a013-c3220502314b"/>
-                <textElement textAlignment="Right">
-                    <font size="12" isBold="true"/>
-                </textElement>
-                <text><![CDATA[ПДВ:]]></text>
-            </staticText>
-            <staticText>
-                <reportElement x="380" y="100" width="100" height="20" uuid="7ac51a8b-9235-4e99-b817-889278437a0a"/>
-                <textElement textAlignment="Right">
-                    <font size="12" isBold="true"/>
-                </textElement>
-                <text><![CDATA[ЗА УПЛАТУ:]]></text>
-            </staticText>
-            <line>
-                <reportElement x="380" y="100" width="175" height="1" uuid="1a646aa5-0b25-48b0-b25a-e3f5e2eb3ff6"/>
-            </line>
-            <staticText>
-                <reportElement x="0" y="80" width="120" height="20" uuid="ca57f752-c9c0-4e7c-a73d-101076a7d7a4"/>
-                <text><![CDATA[Назив дажбине]]></text>
-            </staticText>
-            <staticText>
-                <reportElement x="120" y="80" width="60" height="20" uuid="5f9b185b-e62c-4446-9b08-ff0f1c6dd383"/>
-                <text><![CDATA[%]]></text>
-            </staticText>
-            <staticText>
-                <reportElement x="180" y="80" width="60" height="20" uuid="b65a119a-e30b-4ada-9ec9-0d78610f4206"/>
-                <text><![CDATA[Основица]]></text>
-            </staticText>
-            <staticText>
-                <reportElement x="240" y="80" width="70" height="20" uuid="ac4e0d3e-7917-45fe-86aa-9076f86c385c"/>
-                <text><![CDATA[Износ пореза]]></text>
-            </staticText>
-            <staticText>
-                <reportElement x="180" y="135" width="60" height="20" uuid="3c5d4067-c000-43e4-af46-7be05deb223c"/>
-                <text><![CDATA[Укупно]]></text>
-            </staticText>
-            <textField>
-                <reportElement x="0" y="95" width="120" height="35" uuid="7d8c9ef7-15d2-4c23-84e7-7c02ec7940bb"/>
-                <textFieldExpression><![CDATA[$F{nazivDazbine}]]></textFieldExpression>
-            </textField>
-            <textField>
-                <reportElement x="180" y="95" width="60" height="20" uuid="015196ea-08cb-48ac-bcd1-2adf555663c2"/>
-                <textFieldExpression><![CDATA[$F{iznos}]]></textFieldExpression>
-            </textField>
-            <textField>
-                <reportElement x="240" y="95" width="70" height="20" uuid="1768f56f-95fe-4683-a2dd-81731ef44b8f"/>
-                <textFieldExpression><![CDATA[$F{iznosPoreza}]]></textFieldExpression>
-            </textField>
-            <textField>
-                <reportElement x="240" y="136" width="70" height="18" uuid="0044a73f-fe39-43e1-acb0-f1a364312712"/>
-                <textFieldExpression><![CDATA[$F{iznosPoreza}]]></textFieldExpression>
-            </textField>
-            <textField>
-                <reportElement x="480" y="60" width="75" height="20" uuid="36935932-0df0-4fdf-bbc6-70270aad6a42"/>
-                <textElement textAlignment="Right">
-                    <font size="12" isBold="true"/>
-                </textElement>
-                <textFieldExpression><![CDATA[$F{iznos}]]></textFieldExpression>
-            </textField>
-            <textField>
-                <reportElement x="480" y="80" width="75" height="20" uuid="94f8230f-7320-4883-9935-72e47f879b4b"/>
-                <textElement textAlignment="Right">
-                    <font size="12" isBold="true"/>
-                </textElement>
-                <textFieldExpression><![CDATA[$F{iznosPoreza}]]></textFieldExpression>
-            </textField>
-            <line>
-                <reportElement x="0" y="95" width="309" height="1" uuid="a9c16e90-13fc-4cd3-999a-c2d5139b2e64"/>
-            </line>
-            <line>
-                <reportElement x="0" y="130" width="309" height="1" uuid="71627701-92c2-4bf4-8338-5d3f50c6edba"/>
-            </line>
-            <textField>
-                <reportElement x="480" y="100" width="74" height="20" uuid="2eaa84a2-74bb-4c25-8b26-e5766e6475fd"/>
-                <textElement textAlignment="Right">
-                    <font size="12" isBold="true"/>
-                </textElement>
-                <textFieldExpression><![CDATA[$F{zaUplatu}]]></textFieldExpression>
-            </textField>
-            <textField>
-                <reportElement x="120" y="95" width="50" height="18" uuid="140a4025-4cb5-4768-b51d-b8dba81c7c24"/>
-                <textFieldExpression><![CDATA[$F{pdvProcenat}]]></textFieldExpression>
-            </textField>
-        </band>
-    </columnHeader>
-    <detail>
-        <band height="99" splitType="Stretch">
-            <staticText>
-                <reportElement x="0" y="0" width="60" height="20" uuid="af6bb3c7-bb13-48cb-82fa-3161a1677343"/>
-                <textElement>
-                    <font isBold="true" isItalic="true"/>
-                </textElement>
-                <text><![CDATA[Словима:]]></text>
-            </staticText>
-            <staticText>
-                <reportElement x="0" y="20" width="80" height="20" uuid="7cbeeb76-8557-4df9-b522-318907201f12"/>
-                <text><![CDATA[Матични број:]]></text>
-            </staticText>
-            <staticText>
-                <reportElement x="130" y="20" width="100" height="20" uuid="1aca0117-b88f-46d1-9684-ff06744f3476"/>
-                <text><![CDATA[Шифра делатности:]]></text>
-            </staticText>
-            <staticText>
-                <reportElement x="280" y="20" width="30" height="20" uuid="9032f184-d6d6-4574-9e53-cd43586b460f"/>
-                <text><![CDATA[ПИБ:]]></text>
-            </staticText>
-            <textField>
-                <reportElement x="50" y="0" width="330" height="20" uuid="eb8b350b-2c60-471c-82af-dbdc6fe872be">
-                    <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="fdc7aaab-b18b-49b5-831d-5a479850c9f3"/>
-                </reportElement>
-                <textElement>
-                    <font isBold="true" isItalic="true"/>
-                </textElement>
-                <textFieldExpression><![CDATA[$F{slovima}]]></textFieldExpression>
-            </textField>
-            <textField>
-                <reportElement x="70" y="20" width="60" height="20" uuid="e812f412-67b2-4400-a700-a5f524d51f9c">
-                    <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="47467d13-3357-4c71-8268-14460aa3f150"/>
-                </reportElement>
-                <textFieldExpression><![CDATA[$F{maticniBroj}]]></textFieldExpression>
-            </textField>
-            <textField>
-                <reportElement x="230" y="20" width="50" height="20" uuid="a7d8c2d0-0f4f-4c3e-b5f0-c72c5e82d810">
-                    <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ed11081e-588e-41f9-a464-bfc075ed3fa5"/>
-                </reportElement>
-                <textFieldExpression><![CDATA[$F{sifraDelatnosti}]]></textFieldExpression>
-            </textField>
-            <textField>
-                <reportElement x="310" y="20" width="70" height="20" uuid="a1fd272d-a376-4b8b-a505-ccbbbb0328ef">
-                    <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="82ef0fc0-3f23-4f6c-97a3-96983453bced"/>
-                </reportElement>
-                <textFieldExpression><![CDATA[$F{pibFirma}]]></textFieldExpression>
-            </textField>
-            <staticText>
-                <reportElement x="0" y="40" width="170" height="19" uuid="d9e4122d-cf09-40fb-b4a9-86104ef113ed"/>
-                <text><![CDATA[Напомена о пореском ослобођењу:]]></text>
-            </staticText>
-            <textField>
-                <reportElement x="170" y="40" width="210" height="18" uuid="a637e8fd-ac56-415d-af38-f432c050023d">
-                    <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="71626341-c3bd-4054-92dd-ed767dd259ac"/>
-                </reportElement>
-                <textFieldExpression><![CDATA[$F{napomenaOPO}]]></textFieldExpression>
-            </textField>
-            <staticText>
-                <reportElement x="0" y="60" width="70" height="19" uuid="a6050cdc-1e34-4675-8aa5-36eaaa4ab475"/>
-                <text><![CDATA[Текући рачун:]]></text>
-            </staticText>
-            <textField>
-                <reportElement x="70" y="60" width="100" height="18" uuid="4c1edcba-8ec4-48f2-b50d-e9da661da727">
-                    <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="cf8338fd-a926-49a6-9e41-c8dbfb082680"/>
-                </reportElement>
-                <textElement>
-                    <font isBold="true"/>
-                </textElement>
-                <textFieldExpression><![CDATA[$F{tekuciRacun}]]></textFieldExpression>
-            </textField>
-            <textField>
-                <reportElement x="170" y="60" width="210" height="18" uuid="a9b4c001-84bb-4d6c-a6ad-081b0f28a8a2">
-                    <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="77d85d54-78a6-42f3-a4ba-39a9a81d0df3"/>
-                </reportElement>
-                <textFieldExpression><![CDATA[$F{kodBanke}]]></textFieldExpression>
-            </textField>
-        </band>
-    </detail>
-    <columnFooter>
-        <band height="98" splitType="Stretch">
-            <staticText>
-                <reportElement x="0" y="0" width="100" height="30" uuid="2ae63460-93aa-4087-97a2-c34bc477a7e2"/>
-                <text><![CDATA[ФАКТУРИСАО]]></text>
-            </staticText>
-            <line>
-                <reportElement x="0" y="40" width="104" height="1" uuid="bbf693cf-8772-47e3-b948-f3d9c81daa96"/>
-            </line>
-            <staticText>
-                <reportElement x="-1" y="50" width="20" height="19" uuid="5b8c434f-8abd-4d43-8b03-dddd1381d8b3"/>
-                <textElement>
-                    <font size="8"/>
-                </textElement>
-                <text><![CDATA[Адр:]]></text>
-            </staticText>
-            <staticText>
-                <reportElement x="-1" y="59" width="20" height="19" uuid="85ae35de-6c42-4f20-a6ca-b6c0bd534f35"/>
-                <textElement>
-                    <font size="8"/>
-                </textElement>
-                <text><![CDATA[Тел:]]></text>
-            </staticText>
-            <staticText>
-                <reportElement x="19" y="50" width="142" height="19" uuid="c79d082b-7166-4c44-9f25-a9157adc0802"/>
-                <textElement>
-                    <font size="8"/>
-                </textElement>
-                <text><![CDATA[Рековац, Краља Петра Првог 115]]></text>
-            </staticText>
-            <line>
-                <reportElement x="-2" y="70" width="104" height="1" uuid="147dff3b-00b1-40ee-9a67-67fe2413a317"/>
-            </line>
-            <staticText>
-                <reportElement x="230" y="69" width="100" height="19" uuid="d36b39bb-459d-446b-bee9-a37f6c1ace0d"/>
-                <textElement textAlignment="Center"/>
-                <text><![CDATA[М.П.]]></text>
-            </staticText>
-            <staticText>
-                <reportElement x="380" y="0" width="175" height="30" uuid="364eb4d8-8c4f-425e-80aa-9942dc6809de"/>
-                <textElement>
-                    <font isBold="true"/>
-                </textElement>
-                <text><![CDATA[ЗА: ТМГ ГРЕЈАЊЕ РЕКОВАЦ д.о.о.]]></text>
-            </staticText>
-            <line>
-                <reportElement x="415" y="41" width="104" height="1" uuid="c53ab775-bd05-45d9-8e43-a84c30c28c71"/>
-            </line>
-        </band>
-    </columnFooter>
-    <pageFooter>
-        <band height="54" splitType="Stretch"/>
-    </pageFooter>
-    <summary>
-        <band height="42" splitType="Stretch"/>
-    </summary>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="racunBroj" class="java.lang.String"/>
+	<field name="datumIzdavanjaRacuna" class="java.lang.String"/>
+	<field name="mestoIzdavanjaRacuna" class="java.lang.String"/>
+	<field name="dospeva" class="java.lang.String"/>
+	<field name="datumPrometa" class="java.lang.String"/>
+	<field name="pozivNaBroj" class="java.lang.String"/>
+	<field name="ime" class="java.lang.String"/>
+	<field name="adresa" class="java.lang.String"/>
+	<field name="posta_i_mesto" class="java.lang.String"/>
+	<field name="pib" class="java.lang.String"/>
+	<field name="redniBroj" class="java.lang.String"/>
+	<field name="naziv" class="java.lang.String"/>
+	<field name="jm" class="java.lang.String"/>
+	<field name="kolicina" class="java.lang.String"/>
+	<field name="cena" class="java.lang.String"/>
+	<field name="pdvProcenat" class="java.lang.String"/>
+	<field name="cenaSaPdv" class="java.lang.String"/>
+	<field name="pdv" class="java.lang.String"/>
+	<field name="iznos" class="java.lang.String"/>
+	<field name="nazivDazbine" class="java.lang.String"/>
+	<field name="iznosPoreza" class="java.lang.String"/>
+	<field name="zaUplatu" class="java.lang.String"/>
+	<field name="slovima" class="java.lang.String"/>
+	<field name="maticniBroj" class="java.lang.String"/>
+	<field name="sifraDelatnosti" class="java.lang.String"/>
+	<field name="pibFirma" class="java.lang.String"/>
+	<field name="napomenaOPO" class="java.lang.String"/>
+	<field name="tekuciRacun" class="java.lang.String"/>
+	<field name="kodBanke" class="java.lang.String"/>
+	<field name="logo" class="java.awt.image.BufferedImage"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="135" splitType="Stretch">
+			<image>
+				<reportElement x="20" y="0" width="140" height="80" uuid="4ea73dce-34bd-4229-a3b5-0e0964a126be"/>
+				<imageExpression><![CDATA[$F{logo}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="210" y="0" width="308" height="40" uuid="87c6cead-b959-44e4-b403-d3276fc65544"/>
+				<textElement>
+					<font fontName="DejaVu Sans" size="24" isBold="true" pdfFontName="/report/DejaVuSans-Bold.ttf" pdfEncoding="Cp1251" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA["ТМГ ГРЕЈАЊЕ" д.о.о.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="210" y="40" width="299" height="30" uuid="43c717de-5775-4471-aa6a-fef0fd948f60"/>
+				<textElement>
+					<font fontName="DejaVu Sans" size="14" pdfFontName="/report/DejaVuSans.ttf" pdfEncoding="Cp1251" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[35260 Рековац, Краља Петра Првог 115]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="180" y="60" width="376" height="30" uuid="38208ede-1314-40ef-ab64-f5670ac437bd"/>
+				<textElement>
+					<font fontName="DejaVu Sans" size="14" pdfFontName="/report/DejaVuSans.ttf" pdfEncoding="Cp1251" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[м.б. 21139599, ПИБ 109190786, шифра дел. 3530]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="252" y="80" width="218" height="30" uuid="43169390-c617-48da-b6e0-ea5d388dd8ea"/>
+				<textElement>
+					<font fontName="DejaVu Sans" size="14" pdfFontName="/report/DejaVuSans.ttf" pdfEncoding="Cp1251" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Текући рачун: 150-25750-03]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="240" y="97" width="259" height="30" uuid="9f3079f1-901e-46f5-a962-9529050aea85"/>
+				<textElement>
+					<font fontName="DejaVu Sans" size="14" pdfFontName="/report/DejaVuSans.ttf" pdfEncoding="Cp1251" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[e-mail: tmg.grejanje@gmail.com]]></text>
+			</staticText>
+			<line>
+				<reportElement x="-3" y="120" width="560" height="1" uuid="8752f915-57c2-4848-811c-a7170178d883"/>
+			</line>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="119" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="180" height="30" uuid="2c04eefd-acb9-415e-a8b3-f36b6648058b"/>
+				<textElement textAlignment="Right">
+					<font fontName="DejaVu Sans" size="14" isBold="true" pdfFontName="/report/DejaVuSans-Bold.ttf" pdfEncoding="Cp1251" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[РАЧУН бр:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="20" width="180" height="18" uuid="60e70d15-ef74-4ac0-bf2e-4691bb629853"/>
+				<textElement textAlignment="Right">
+					<font fontName="DejaVu Sans" size="10" pdfFontName="/report/DejaVuSans.ttf" pdfEncoding="Cp1251" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Позив на број:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="50" width="178" height="30" uuid="c13b3900-1f60-4d69-8e2b-f498039815dd"/>
+				<textElement textAlignment="Right">
+					<font fontName="DejaVu Sans" size="10" pdfFontName="/report/DejaVuSans.ttf" pdfEncoding="Cp1251" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Место издавања рачуна:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="70" width="179" height="30" uuid="a4dc5ef3-e6ab-44fe-8fa5-224625d36148"/>
+				<textElement textAlignment="Right">
+					<font fontName="DejaVu Sans" size="10" pdfFontName="/report/DejaVuSans.ttf" pdfEncoding="Cp1251" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Датум промета добара и услуга:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="60" width="179" height="30" uuid="fcac2e81-351a-43c0-bcee-1aa6d047de37"/>
+				<textElement textAlignment="Right">
+					<font fontName="DejaVu Sans" pdfFontName="/report/DejaVuSans.ttf" pdfEncoding="Cp1251" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Доспева:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="40" width="179" height="30" uuid="84dbfcc9-f6fb-4f00-9f5e-7e2d9caccfee"/>
+				<textElement textAlignment="Right">
+					<font fontName="DejaVu Sans" pdfFontName="/report/DejaVuSans.ttf" pdfEncoding="Cp1251" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Датум издавања рачуна:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="190" y="0" width="100" height="30" uuid="ddcc1b69-5d62-4624-ab2b-4407ed1302de"/>
+				<textElement>
+					<font fontName="DejaVu Sans" size="14" isBold="true" pdfFontName="/report/DejaVuSans-Bold.ttf" pdfEncoding="Cp1251" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{racunBroj}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="190" y="20" width="100" height="19" uuid="99d66c97-a00d-4c6a-b5b1-2d54fb3f65fd"/>
+				<textElement>
+					<font fontName="DejaVu Sans" isBold="true" pdfFontName="/report/DejaVuSans-Bold.ttf" pdfEncoding="Cp1251" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pozivNaBroj}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="190" y="40" width="160" height="30" uuid="38c09be1-a1c1-4f60-90f6-ebcf1711b4d7"/>
+				<textElement>
+					<font fontName="DejaVu Sans" isBold="true" pdfFontName="/report/DejaVuSans-Bold.ttf" pdfEncoding="Cp1251" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{datumIzdavanjaRacuna}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="190" y="50" width="160" height="30" uuid="b099f385-6b0b-488b-8394-442068de8e0d"/>
+				<textElement>
+					<font fontName="DejaVu Sans" isBold="true" pdfFontName="/report/DejaVuSans-Bold.ttf" pdfEncoding="Cp1251" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{mestoIzdavanjaRacuna}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="190" y="60" width="160" height="30" uuid="90a998b9-5b42-4bc5-9161-842f377309ac"/>
+				<textElement>
+					<font fontName="DejaVu Sans" isBold="true" pdfFontName="/report/DejaVuSans-Bold.ttf" pdfEncoding="Cp1251" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dospeva}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="190" y="70" width="160" height="30" uuid="744366ca-0981-4757-90b6-2ee5a712dd26"/>
+				<textElement>
+					<font fontName="DejaVu Sans" isBold="true" pdfFontName="/report/DejaVuSans-Bold.ttf" pdfEncoding="Cp1251" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{datumPrometa}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="300" y="0" width="256" height="99" uuid="ea6532d5-7ab1-4f8e-acf7-19b71c499edd"/>
+			</rectangle>
+			<textField>
+				<reportElement x="311" y="0" width="246" height="19" uuid="6372139b-8f68-4185-b6bd-ab4b52a0e070"/>
+				<textElement textAlignment="Center">
+					<font fontName="DejaVu Sans" size="12" isBold="true" pdfFontName="/report/DejaVuSans-Bold.ttf" pdfEncoding="Cp1251" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ime}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="311" y="17" width="244" height="18" uuid="6fdc9de4-efda-4d3a-99db-1bc391d37bc3"/>
+				<textElement textAlignment="Center">
+					<font fontName="DejaVu Sans" isBold="true" pdfFontName="/report/DejaVuSans-Bold.ttf" pdfEncoding="Cp1251" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{adresa}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="311" y="28" width="246" height="30" uuid="83a4ff56-1b4f-4fab-bcaa-9b2bf0f321a3"/>
+				<textElement textAlignment="Center">
+					<font fontName="DejaVu Sans" isBold="true" pdfFontName="/report/DejaVuSans-Bold.ttf" pdfEncoding="Cp1251" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{posta_i_mesto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="311" y="38" width="244" height="30" uuid="252505f7-825a-48df-9405-1df54979d0b5"/>
+				<textElement textAlignment="Center">
+					<font fontName="DejaVu Sans" isBold="true" pdfFontName="/report/DejaVuSans-Bold.ttf" pdfEncoding="Cp1251" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pib}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="172" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="10" width="30" height="20" uuid="0b217479-8e26-4585-9f5c-2926c6ba4a79"/>
+				<textElement>
+					<font fontName="DejaVu Sans" isBold="true" pdfFontName="/report/DejaVuSans-Bold.ttf" pdfEncoding="Cp1251" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Рб]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="30" y="10" width="50" height="20" uuid="cc35c8ad-f128-4e0d-a1c6-5e450d3efae2"/>
+				<textElement>
+					<font fontName="DejaVu Sans" isBold="true" pdfFontName="/report/DejaVuSans-Bold.ttf" pdfEncoding="Cp1251" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Назив]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="130" y="10" width="30" height="20" uuid="e29b610e-a68a-4309-856d-fba255c6ee3d"/>
+				<textElement>
+					<font fontName="DejaVu Sans" isBold="true" pdfFontName="/report/DejaVuSans-Bold.ttf" pdfEncoding="Cp1251" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[ЈМ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="160" y="10" width="60" height="20" uuid="b63615e9-7fde-4a30-aee5-dbe23824ccee"/>
+				<textElement>
+					<font fontName="DejaVu Sans" isBold="true" pdfFontName="/report/DejaVuSans-Bold.ttf" pdfEncoding="Cp1251" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Количина]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="220" y="10" width="50" height="20" uuid="fc83627e-23ac-487b-afb0-e1f9f19ae8dd"/>
+				<textElement>
+					<font fontName="DejaVu Sans" isBold="true" pdfFontName="/report/DejaVuSans-Bold.ttf" pdfEncoding="Cp1251" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Цена]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="290" y="10" width="50" height="20" uuid="74d01d5a-6d69-488e-92b2-6f0cc7de8d9f"/>
+				<textElement>
+					<font fontName="DejaVu Sans" isBold="true" pdfFontName="/report/DejaVuSans-Bold.ttf" pdfEncoding="Cp1251" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[ПДВ%]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="360" y="10" width="90" height="20" uuid="dfaf3b57-f513-49c4-a11c-9b3324ef2a82"/>
+				<textElement>
+					<font fontName="DejaVu Sans" isBold="true" pdfFontName="/report/DejaVuSans-Bold.ttf" pdfEncoding="Cp1251" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Цена са ПДВ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="450" y="10" width="50" height="20" uuid="23c9e4ca-e7a5-4a0a-9ed8-19fe79c06a0c"/>
+				<textElement>
+					<font fontName="DejaVu Sans" isBold="true" pdfFontName="/report/DejaVuSans-Bold.ttf" pdfEncoding="Cp1251" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[ПДВ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="505" y="10" width="50" height="20" uuid="776d077f-08d8-4352-8e63-132bc8005385"/>
+				<textElement>
+					<font fontName="DejaVu Sans" isBold="true" pdfFontName="/report/DejaVuSans-Bold.ttf" pdfEncoding="Cp1251" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Износ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="30" width="30" height="18" uuid="7fcb7ddb-3906-403b-8557-2ad1ba6529b4"/>
+				<textElement>
+					<font fontName="DejaVu Sans" pdfFontName="/report/DejaVuSans.ttf" pdfEncoding="Cp1251" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{redniBroj}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="30" y="30" width="100" height="31" uuid="e045f827-e644-4266-8e4c-0ad420f3f1a5"/>
+				<textElement>
+					<font fontName="DejaVu Sans" pdfFontName="/report/DejaVuSans.ttf" pdfEncoding="Cp1251" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{naziv}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="130" y="30" width="30" height="18" uuid="2858c9a7-992d-41a9-9a80-0fc7fc324442"/>
+				<textElement>
+					<font fontName="DejaVu Sans" pdfFontName="/report/DejaVuSans.ttf" pdfEncoding="Cp1251" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{jm}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="160" y="30" width="50" height="18" uuid="74ed38f1-8f6f-4d71-9b59-c538855061bd"/>
+				<textElement>
+					<font fontName="DejaVu Sans" pdfFontName="/report/DejaVuSans.ttf" pdfEncoding="Cp1251" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{kolicina}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="220" y="30" width="50" height="18" uuid="1aaf40e8-c3bb-4898-a69e-2d1b97f970a8"/>
+				<textElement>
+					<font fontName="DejaVu Sans" pdfFontName="/report/DejaVuSans.ttf" pdfEncoding="Cp1251" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cena}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="290" y="30" width="50" height="18" uuid="c91d0add-e2a3-46a6-bd9d-dd3e4fda8dbb"/>
+				<textElement>
+					<font fontName="DejaVu Sans" pdfFontName="/report/DejaVuSans.ttf" pdfEncoding="Cp1251" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pdvProcenat}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="360" y="30" width="70" height="18" uuid="7294807f-40f8-41bc-984d-e1b2cd063009"/>
+				<textElement>
+					<font fontName="DejaVu Sans" pdfFontName="/report/DejaVuSans.ttf" pdfEncoding="Cp1251" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cenaSaPdv}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="450" y="30" width="30" height="18" uuid="04244e93-e0bb-42b2-9a65-7041f31da1fe"/>
+				<textElement>
+					<font fontName="DejaVu Sans" pdfFontName="/report/DejaVuSans.ttf" pdfEncoding="Cp1251" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pdv}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="490" y="30" width="64" height="18" uuid="a30e72fe-73af-4c56-bb57-08b1e60bbfae"/>
+				<textElement textAlignment="Right">
+					<font fontName="DejaVu Sans" pdfFontName="/report/DejaVuSans.ttf" pdfEncoding="Cp1251" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{iznos}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="10" width="560" height="1" uuid="079258ab-893d-45a8-9a9c-f2cebfe47e97"/>
+			</line>
+			<line>
+				<reportElement x="0" y="29" width="560" height="1" uuid="0f3206fc-e3b5-466f-baef-22b25c27adcb"/>
+			</line>
+			<line>
+				<reportElement x="0" y="60" width="560" height="1" uuid="67f54bf7-1e68-4c2b-88ea-ba997b1793fe"/>
+			</line>
+			<staticText>
+				<reportElement x="415" y="60" width="65" height="20" uuid="3852169b-44d4-47e0-afdc-d5916d6feb60"/>
+				<textElement textAlignment="Right">
+					<font fontName="DejaVu Sans" size="12" isBold="true" pdfFontName="/report/DejaVuSans-Bold.ttf" pdfEncoding="Cp1251" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Укупно:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="430" y="80" width="50" height="20" uuid="14653c43-1c45-450e-a013-c3220502314b"/>
+				<textElement textAlignment="Right">
+					<font fontName="DejaVu Sans" size="12" isBold="true" pdfFontName="/report/DejaVuSans-Bold.ttf" pdfEncoding="Cp1251" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[ПДВ:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="380" y="100" width="100" height="20" uuid="7ac51a8b-9235-4e99-b817-889278437a0a"/>
+				<textElement textAlignment="Right">
+					<font fontName="DejaVu Sans" size="12" isBold="true" pdfFontName="/report/DejaVuSans-Bold.ttf" pdfEncoding="Cp1251" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[ЗА УПЛАТУ:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="380" y="100" width="175" height="1" uuid="1a646aa5-0b25-48b0-b25a-e3f5e2eb3ff6"/>
+			</line>
+			<staticText>
+				<reportElement x="0" y="80" width="120" height="20" uuid="ca57f752-c9c0-4e7c-a73d-101076a7d7a4"/>
+				<textElement>
+					<font fontName="DejaVu Sans" pdfFontName="/report/DejaVuSans.ttf" pdfEncoding="Cp1251" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Назив дажбине]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="120" y="80" width="60" height="20" uuid="5f9b185b-e62c-4446-9b08-ff0f1c6dd383"/>
+				<textElement>
+					<font fontName="DejaVu Sans" pdfFontName="/report/DejaVuSans.ttf" pdfEncoding="Cp1251" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[%]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="180" y="80" width="60" height="20" uuid="b65a119a-e30b-4ada-9ec9-0d78610f4206"/>
+				<textElement>
+					<font fontName="DejaVu Sans" pdfFontName="/report/DejaVuSans.ttf" pdfEncoding="Cp1251" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Основица]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="240" y="80" width="70" height="20" uuid="ac4e0d3e-7917-45fe-86aa-9076f86c385c"/>
+				<textElement>
+					<font fontName="DejaVu Sans" pdfFontName="/report/DejaVuSans.ttf" pdfEncoding="Cp1251" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Износ пореза]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="180" y="135" width="60" height="20" uuid="3c5d4067-c000-43e4-af46-7be05deb223c"/>
+				<textElement>
+					<font fontName="DejaVu Sans" pdfFontName="/report/DejaVuSans.ttf" pdfEncoding="Cp1251" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Укупно]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="95" width="120" height="35" uuid="7d8c9ef7-15d2-4c23-84e7-7c02ec7940bb"/>
+				<textElement>
+					<font fontName="DejaVu Sans" pdfFontName="/report/DejaVuSans.ttf" pdfEncoding="Cp1251" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nazivDazbine}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="180" y="95" width="60" height="20" uuid="015196ea-08cb-48ac-bcd1-2adf555663c2"/>
+				<textElement>
+					<font fontName="DejaVu Sans" pdfFontName="/report/DejaVuSans.ttf" pdfEncoding="Cp1251" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{iznos}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="240" y="95" width="70" height="20" uuid="1768f56f-95fe-4683-a2dd-81731ef44b8f"/>
+				<textElement>
+					<font fontName="DejaVu Sans" pdfFontName="/report/DejaVuSans.ttf" pdfEncoding="Cp1251" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{iznosPoreza}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="240" y="136" width="70" height="18" uuid="0044a73f-fe39-43e1-acb0-f1a364312712"/>
+				<textElement>
+					<font fontName="DejaVu Sans" pdfFontName="/report/DejaVuSans.ttf" pdfEncoding="Cp1251" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{iznosPoreza}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="480" y="60" width="75" height="20" uuid="36935932-0df0-4fdf-bbc6-70270aad6a42"/>
+				<textElement textAlignment="Right">
+					<font fontName="DejaVu Sans" size="12" isBold="true" pdfFontName="/report/DejaVuSans-Bold.ttf" pdfEncoding="Cp1251" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{iznos}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="480" y="80" width="75" height="20" uuid="94f8230f-7320-4883-9935-72e47f879b4b"/>
+				<textElement textAlignment="Right">
+					<font fontName="DejaVu Sans" size="12" isBold="true" pdfFontName="/report/DejaVuSans-Bold.ttf" pdfEncoding="Cp1251" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{iznosPoreza}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="95" width="309" height="1" uuid="a9c16e90-13fc-4cd3-999a-c2d5139b2e64"/>
+			</line>
+			<line>
+				<reportElement x="0" y="130" width="309" height="1" uuid="71627701-92c2-4bf4-8338-5d3f50c6edba"/>
+			</line>
+			<textField>
+				<reportElement x="480" y="100" width="74" height="20" uuid="2eaa84a2-74bb-4c25-8b26-e5766e6475fd"/>
+				<textElement textAlignment="Right">
+					<font fontName="DejaVu Sans" size="12" isBold="true" pdfFontName="/report/DejaVuSans-Bold.ttf" pdfEncoding="Cp1251" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{zaUplatu}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="120" y="95" width="50" height="18" uuid="140a4025-4cb5-4768-b51d-b8dba81c7c24"/>
+				<textElement>
+					<font fontName="DejaVu Sans" pdfFontName="/report/DejaVuSans.ttf" pdfEncoding="Cp1251" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pdvProcenat}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="99" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="60" height="20" uuid="af6bb3c7-bb13-48cb-82fa-3161a1677343"/>
+				<textElement>
+					<font fontName="DejaVu Sans" isBold="true" isItalic="true" pdfFontName="/report/DejaVuSans-Bold.ttf" pdfEncoding="Cp1251" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Словима:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="20" width="90" height="20" uuid="7cbeeb76-8557-4df9-b522-318907201f12"/>
+				<textElement>
+					<font fontName="DejaVu Sans" pdfFontName="/report/DejaVuSans.ttf" pdfEncoding="Cp1251" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Матични број:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="170" y="20" width="119" height="20" uuid="1aca0117-b88f-46d1-9684-ff06744f3476"/>
+				<textElement>
+					<font fontName="DejaVu Sans" pdfFontName="/report/DejaVuSans.ttf" pdfEncoding="Cp1251" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Шифра делатности:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="340" y="20" width="30" height="20" uuid="9032f184-d6d6-4574-9e53-cd43586b460f"/>
+				<textElement>
+					<font fontName="DejaVu Sans" pdfFontName="/report/DejaVuSans.ttf" pdfEncoding="Cp1251" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[ПИБ:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="60" y="0" width="330" height="20" uuid="eb8b350b-2c60-471c-82af-dbdc6fe872be">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="fdc7aaab-b18b-49b5-831d-5a479850c9f3"/>
+				</reportElement>
+				<textElement>
+					<font fontName="DejaVu Sans" isBold="true" isItalic="true" pdfFontName="/report/DejaVuSans-Bold.ttf" pdfEncoding="Cp1251" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{slovima}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="90" y="20" width="79" height="20" uuid="e812f412-67b2-4400-a700-a5f524d51f9c">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="47467d13-3357-4c71-8268-14460aa3f150"/>
+				</reportElement>
+				<textElement>
+					<font fontName="DejaVu Sans" pdfFontName="/report/DejaVuSans.ttf" pdfEncoding="Cp1251" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{maticniBroj}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="290" y="20" width="50" height="20" uuid="a7d8c2d0-0f4f-4c3e-b5f0-c72c5e82d810">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ed11081e-588e-41f9-a464-bfc075ed3fa5"/>
+				</reportElement>
+				<textElement>
+					<font fontName="DejaVu Sans" pdfFontName="/report/DejaVuSans.ttf" pdfEncoding="Cp1251" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sifraDelatnosti}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="370" y="20" width="70" height="20" uuid="a1fd272d-a376-4b8b-a505-ccbbbb0328ef">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="82ef0fc0-3f23-4f6c-97a3-96983453bced"/>
+				</reportElement>
+				<textElement>
+					<font fontName="DejaVu Sans" pdfFontName="/report/DejaVuSans.ttf" pdfEncoding="Cp1251" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pibFirma}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="40" width="170" height="19" uuid="d9e4122d-cf09-40fb-b4a9-86104ef113ed"/>
+				<textElement>
+					<font fontName="DejaVu Sans" pdfFontName="/report/DejaVuSans.ttf" pdfEncoding="Cp1251" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Напомена о пореском ослобођењу:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="170" y="40" width="210" height="18" uuid="a637e8fd-ac56-415d-af38-f432c050023d">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="71626341-c3bd-4054-92dd-ed767dd259ac"/>
+				</reportElement>
+				<textElement>
+					<font fontName="DejaVu Sans" pdfFontName="/report/DejaVuSans.ttf" pdfEncoding="Cp1251" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{napomenaOPO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="60" width="70" height="19" uuid="a6050cdc-1e34-4675-8aa5-36eaaa4ab475"/>
+				<textElement>
+					<font fontName="DejaVu Sans" pdfFontName="/report/DejaVuSans.ttf" pdfEncoding="Cp1251" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Текући рачун:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="70" y="60" width="100" height="18" uuid="4c1edcba-8ec4-48f2-b50d-e9da661da727">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="cf8338fd-a926-49a6-9e41-c8dbfb082680"/>
+				</reportElement>
+				<textElement>
+					<font fontName="DejaVu Sans" isBold="true" pdfFontName="/report/DejaVuSans-Bold.ttf" pdfEncoding="Cp1251" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tekuciRacun}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="170" y="60" width="210" height="18" uuid="a9b4c001-84bb-4d6c-a6ad-081b0f28a8a2">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="77d85d54-78a6-42f3-a4ba-39a9a81d0df3"/>
+				</reportElement>
+				<textElement>
+					<font fontName="DejaVu Sans" pdfFontName="/report/DejaVuSans.ttf" pdfEncoding="Cp1251" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{kodBanke}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="98" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="30" uuid="2ae63460-93aa-4087-97a2-c34bc477a7e2"/>
+				<textElement>
+					<font fontName="DejaVu Sans" pdfFontName="/report/DejaVuSans.ttf" pdfEncoding="Cp1251" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[ФАКТУРИСАО]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="40" width="104" height="1" uuid="bbf693cf-8772-47e3-b948-f3d9c81daa96"/>
+			</line>
+			<staticText>
+				<reportElement x="-1" y="50" width="20" height="19" uuid="5b8c434f-8abd-4d43-8b03-dddd1381d8b3"/>
+				<textElement>
+					<font fontName="DejaVu Sans" size="8" pdfFontName="/report/DejaVuSans.ttf" pdfEncoding="Cp1251" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Адр:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-1" y="69" width="20" height="19" uuid="85ae35de-6c42-4f20-a6ca-b6c0bd534f35"/>
+				<textElement>
+					<font fontName="DejaVu Sans" size="8" pdfFontName="/report/DejaVuSans.ttf" pdfEncoding="Cp1251" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Тел:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="19" y="50" width="142" height="19" uuid="c79d082b-7166-4c44-9f25-a9157adc0802"/>
+				<textElement>
+					<font fontName="DejaVu Sans" size="8" pdfFontName="/report/DejaVuSans.ttf" pdfEncoding="Cp1251" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Рековац, Краља Петра Првог 115]]></text>
+			</staticText>
+			<line>
+				<reportElement x="-2" y="80" width="104" height="1" uuid="147dff3b-00b1-40ee-9a67-67fe2413a317"/>
+			</line>
+			<staticText>
+				<reportElement x="230" y="69" width="100" height="19" uuid="d36b39bb-459d-446b-bee9-a37f6c1ace0d"/>
+				<textElement textAlignment="Center">
+					<font fontName="DejaVu Sans" pdfFontName="/report/DejaVuSans.ttf" pdfEncoding="Cp1251" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[М.П.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="360" y="0" width="195" height="30" uuid="364eb4d8-8c4f-425e-80aa-9942dc6809de"/>
+				<textElement>
+					<font fontName="DejaVu Sans" isBold="true" pdfFontName="/report/DejaVuSans-Bold.ttf" pdfEncoding="Cp1251" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[ЗА: ТМГ ГРЕЈАЊЕ РЕКОВАЦ д.о.о.]]></text>
+			</staticText>
+			<line>
+				<reportElement x="415" y="41" width="104" height="1" uuid="c53ab775-bd05-45d9-8e43-a84c30c28c71"/>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
 </jasperReport>

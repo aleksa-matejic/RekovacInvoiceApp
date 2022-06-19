@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
@@ -30,7 +31,14 @@
             <TextField fx:id="tfMesto" GridPane.columnIndex="3" />
             <TextField fx:id="tfAdresa" GridPane.columnIndex="3" GridPane.rowIndex="1" />
             <TextField fx:id="tfPib" GridPane.columnIndex="5" />
-            <Button fx:id="btnDodajKorisnika" mnemonicParsing="false" text="Dodaj korisnika" GridPane.rowIndex="2" />
+            <Button fx:id="btnDodajKorisnika" mnemonicParsing="false" text="Dodaj" GridPane.rowIndex="2">
+               <graphic>
+                  <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons8-add-user-64.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
          </children>
       </GridPane>
    </top>

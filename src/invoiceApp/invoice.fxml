@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
 <BorderPane prefHeight="400.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="invoiceApp.invoiceController">
@@ -39,13 +40,34 @@
                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <children>
-                              <Button fx:id="btnDodajKorisnika" mnemonicParsing="false" text="Dodaj korisnika" GridPane.rowIndex="1" />
-                              <Button fx:id="btnOsvezi" mnemonicParsing="false" text="Osveži" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <Button fx:id="btnDodajKorisnika" mnemonicParsing="false" text="Dodaj korisnika" GridPane.rowIndex="1">
+                                 <graphic>
+                                    <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/icons8-add-user-64.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic></Button>
+                              <Button fx:id="btnOsvezi" mnemonicParsing="false" text="Osveži" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <graphic>
+                                    <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/icons8-refresh-24.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic></Button>
                            </children>
                         </GridPane>
                      </top>
                         </BorderPane>
                     </content>
+               <graphic>
+                  <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons8-users-64.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
                 </Tab>
             <Tab text="Firma">
                <content>
@@ -90,13 +112,34 @@
                               <TextField fx:id="tfTekuciRacun" GridPane.columnIndex="5" />
                               <TextField fx:id="tfKodBanke" GridPane.columnIndex="5" GridPane.rowIndex="1" />
                               <TextField fx:id="tfEmail" GridPane.columnIndex="5" GridPane.rowIndex="2" />
-                              <Button fx:id="btnUrediFirmu" mnemonicParsing="false" text="Uredi firmu" GridPane.rowIndex="4" />
-                              <Button fx:id="btnSacuvajPromene" mnemonicParsing="false" text="Sačuvaj promene" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                              <Button fx:id="btnUrediFirmu" mnemonicParsing="false" text="Uredi firmu" GridPane.rowIndex="4">
+                                 <graphic>
+                                    <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/icons8-edit-50.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic></Button>
+                              <Button fx:id="btnSacuvajPromene" mnemonicParsing="false" text="Sačuvaj promene" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                 <graphic>
+                                    <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/icons8-save-50.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic></Button>
                            </children>
                         </GridPane>
                      </top>
                   </BorderPane>
                </content>
+               <graphic>
+                  <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons8-company-50.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </Tab>
             </tabs>
         </TabPane>

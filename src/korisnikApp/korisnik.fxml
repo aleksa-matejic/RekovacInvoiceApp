@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
@@ -33,14 +34,70 @@
             <TextField fx:id="tfMestoKor" GridPane.columnIndex="3" GridPane.rowIndex="1" />
             <TextField fx:id="tfAdresaKor" GridPane.columnIndex="5" />
             <TextField fx:id="tfPibKor" GridPane.columnIndex="5" GridPane.rowIndex="1" />
-            <Button fx:id="btnUrediKorisnika" mnemonicParsing="false" text="Uredi korisnika" GridPane.rowIndex="2" />
-            <Button fx:id="btnSacuvajKorisnika" mnemonicParsing="false" text="Sačuvaj promene" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <Button fx:id="btnObrisiKorisnika" mnemonicParsing="false" text="Obriši korisnika" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-            <Button fx:id="btnDodajRacun" mnemonicParsing="false" text="Dodaj račun" GridPane.rowIndex="3" />
-            <Button fx:id="btnUrediRacun" mnemonicParsing="false" text="Uredi račun" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <Button fx:id="btnObrisiRacun" mnemonicParsing="false" text="Obriši račun" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-            <Button fx:id="btnStampajRacun" mnemonicParsing="false" text="Štampaj račun" GridPane.columnIndex="3" GridPane.rowIndex="3" />
-            <Button fx:id="btnOsvezi" mnemonicParsing="false" text="Osveži" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+            <Button fx:id="btnUrediKorisnika" mnemonicParsing="false" text="Uredi korisnika" GridPane.rowIndex="2">
+               <graphic>
+                  <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons8-edit-user-32.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button fx:id="btnSacuvajKorisnika" mnemonicParsing="false" text="Sačuvaj promene" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <graphic>
+                  <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons8-save-50.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button fx:id="btnObrisiKorisnika" mnemonicParsing="false" text="Obriši korisnika" GridPane.columnIndex="2" GridPane.rowIndex="2">
+               <graphic>
+                  <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons8-delete-user-64.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button fx:id="btnDodajRacun" mnemonicParsing="false" text="Dodaj račun" GridPane.rowIndex="3">
+               <graphic>
+                  <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons8-add-file-64.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button fx:id="btnUrediRacun" mnemonicParsing="false" text="Uredi račun" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <graphic>
+                  <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons8-edit-file-50.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button fx:id="btnObrisiRacun" mnemonicParsing="false" text="Obriši račun" GridPane.columnIndex="2" GridPane.rowIndex="3">
+               <graphic>
+                  <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons8-delete-file-64.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button fx:id="btnStampajRacun" mnemonicParsing="false" text="Štampaj račun" GridPane.columnIndex="3" GridPane.rowIndex="3">
+               <graphic>
+                  <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons8-print-file-32.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button fx:id="btnOsvezi" mnemonicParsing="false" text="Osveži" GridPane.columnIndex="3" GridPane.rowIndex="2">
+               <graphic>
+                  <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons8-refresh-24.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
             <Label text="Dug iz prethodnog perioda" GridPane.columnIndex="4" GridPane.rowIndex="2" />
             <TextField fx:id="tfDug" GridPane.columnIndex="5" GridPane.rowIndex="2" />
          </children>

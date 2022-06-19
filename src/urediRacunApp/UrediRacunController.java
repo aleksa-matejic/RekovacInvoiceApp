@@ -33,18 +33,18 @@ public class UrediRacunController implements Initializable
     {
         populateUrediRacunTextFields();
 
-        btnSacuvajIzmene.setOnAction(new EventHandler<ActionEvent>()
+        btnSacuvajPromene.setOnAction(new EventHandler<ActionEvent>()
         {
             @Override
             public void handle(ActionEvent e)
             {
-                sacuvajIzmene();
+                sacuvajPromene();
             }
         });
     }
 
     @FXML
-    private Button btnSacuvajIzmene;
+    private Button btnSacuvajPromene;
 
     @FXML
     private TextField tfBrojRacuna;
@@ -138,7 +138,7 @@ public class UrediRacunController implements Initializable
         tfNapomenaOPO.setText(racunData.getNapomenaOPO());
     }
 
-    private void sacuvajIzmene()
+    private void sacuvajPromene()
     {
         String sql = "UPDATE racun SET brojRacuna = ?, pozivNaBroj = ?, datumIzdavanja = ?, mestoIzdavanja = ?, dospeva = ?, " +
                 "datumPrometa = ?, redniBroj = ?, naziv = ?, jm = ?, kolicina = ?, " +
@@ -190,7 +190,7 @@ public class UrediRacunController implements Initializable
             alert.setContentText("Molimo pritisnite OK.");
             alert.showAndWait();
 
-            Stage stage = (Stage) btnSacuvajIzmene.getScene().getWindow();
+            Stage stage = (Stage) btnSacuvajPromene.getScene().getWindow();
             stage.close();
         } catch (SQLException ex)
         {

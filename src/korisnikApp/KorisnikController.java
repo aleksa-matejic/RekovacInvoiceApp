@@ -376,7 +376,7 @@ public class KorisnikController implements Initializable
 
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Potvrdite akciju!");
-        alert.setHeaderText("Obrisati korisnikov racun?");
+        alert.setHeaderText("Obrisati korisnikov račun?");
         alert.setContentText("Da li ste sigurni?");
 
         Optional<ButtonType> result = alert.showAndWait();
@@ -394,8 +394,8 @@ public class KorisnikController implements Initializable
                 conn.close();
 
                 alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Akcija uspesna!");
-                alert.setHeaderText("Racun uspesno obrisan!");
+                alert.setTitle("Akcija uspešna!");
+                alert.setHeaderText("Račun uspešno obrisan!");
                 alert.setContentText("Molimo pritisnite OK.");
                 alert.showAndWait();
 
@@ -450,8 +450,8 @@ public class KorisnikController implements Initializable
             conn.close();
 
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Akcija uspesna!");
-            alert.setHeaderText("Azuriranje korisnika uspesno!");
+            alert.setTitle("Akcija uspešna!");
+            alert.setHeaderText("Ažuriranje korisnika uspešno!");
             alert.setContentText("Molimo pritisnite OK.");
             alert.showAndWait();
 
@@ -465,7 +465,7 @@ public class KorisnikController implements Initializable
     {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Potvrdite akciju!");
-        alert.setHeaderText("Obrisati korisnika i sve njegove racune?");
+        alert.setHeaderText("Obrisati korisnika i sve njegove račune?");
         alert.setContentText("Da li ste sigurni?");
 
         Optional<ButtonType> result = alert.showAndWait();
@@ -502,8 +502,8 @@ public class KorisnikController implements Initializable
             }
 
             alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Akcija uspesna!");
-            alert.setHeaderText("Korisnik uspesno obrisan!");
+            alert.setTitle("Akcija uspešna!");
+            alert.setHeaderText("Korisnik uspešno obrisan!");
             alert.setContentText("Molimo pritisnite OK.");
             alert.showAndWait();
 

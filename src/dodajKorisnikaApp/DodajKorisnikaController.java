@@ -55,8 +55,8 @@ public class DodajKorisnikaController implements Initializable
             conn.close();
 
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Akcija uspesna!");
-            alert.setHeaderText("Unos korisnika uspesan!");
+            alert.setTitle("Akcija uspešna!");
+            alert.setHeaderText("Unos korisnika uspešan!");
             alert.setContentText("Molimo pritisnite OK.");
             alert.showAndWait();
 

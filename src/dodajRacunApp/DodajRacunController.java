@@ -146,8 +146,8 @@ public class DodajRacunController implements Initializable
             conn.close();
 
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Akcija uspesna!");
-            alert.setHeaderText("Racun uspesno dodat korisniku!");
+            alert.setTitle("Akcija uspešna!");
+            alert.setHeaderText("Račun uspešno dodat korisniku!");
             alert.setContentText("Molimo pritisnite OK.");
             alert.showAndWait();
 

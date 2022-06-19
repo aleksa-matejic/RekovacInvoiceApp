@@ -1,16 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <top>
       <GridPane BorderPane.alignment="CENTER">
         <columnConstraints>
@@ -30,7 +23,7 @@
          <children>
             <Label text="idKorisnik" />
             <Label text="Ime" GridPane.rowIndex="1" />
-            <Label text="Posta" GridPane.columnIndex="2" />
+            <Label text="Pošta" GridPane.columnIndex="2" />
             <Label text="Mesto" GridPane.columnIndex="2" GridPane.rowIndex="1" />
             <Label text="Adresa" GridPane.columnIndex="4" />
             <Label text="PIB" GridPane.columnIndex="4" GridPane.rowIndex="1" />
@@ -41,13 +34,13 @@
             <TextField fx:id="tfAdresaKor" GridPane.columnIndex="5" />
             <TextField fx:id="tfPibKor" GridPane.columnIndex="5" GridPane.rowIndex="1" />
             <Button fx:id="btnUrediKorisnika" mnemonicParsing="false" text="Uredi korisnika" GridPane.rowIndex="2" />
-            <Button fx:id="btnSacuvajKorisnika" mnemonicParsing="false" text="Sacuvaj promene" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <Button fx:id="btnObrisiKorisnika" mnemonicParsing="false" text="Obrisi korisnika" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-            <Button fx:id="btnDodajRacun" mnemonicParsing="false" text="Dodaj racun" GridPane.rowIndex="3" />
-            <Button fx:id="btnUrediRacun" mnemonicParsing="false" text="Uredi racun" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <Button fx:id="btnObrisiRacun" mnemonicParsing="false" text="Obrisi racun" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-            <Button fx:id="btnStampajRacun" mnemonicParsing="false" text="Stampaj racun" GridPane.columnIndex="3" GridPane.rowIndex="3" />
-            <Button fx:id="btnOsvezi" mnemonicParsing="false" text="Osvezi" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+            <Button fx:id="btnSacuvajKorisnika" mnemonicParsing="false" text="Sačuvaj promene" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Button fx:id="btnObrisiKorisnika" mnemonicParsing="false" text="Obriši korisnika" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <Button fx:id="btnDodajRacun" mnemonicParsing="false" text="Dodaj račun" GridPane.rowIndex="3" />
+            <Button fx:id="btnUrediRacun" mnemonicParsing="false" text="Uredi račun" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Button fx:id="btnObrisiRacun" mnemonicParsing="false" text="Obriši račun" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+            <Button fx:id="btnStampajRacun" mnemonicParsing="false" text="Štampaj račun" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+            <Button fx:id="btnOsvezi" mnemonicParsing="false" text="Osveži" GridPane.columnIndex="3" GridPane.rowIndex="2" />
             <Label text="Dug iz prethodnog perioda" GridPane.columnIndex="4" GridPane.rowIndex="2" />
             <TextField fx:id="tfDug" GridPane.columnIndex="5" GridPane.rowIndex="2" />
          </children>
@@ -57,7 +50,7 @@
       <TableView fx:id="tvRacun" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
         <columns>
           <TableColumn fx:id="colIdRacun" prefWidth="75.0" text="idRacun" />
-          <TableColumn fx:id="colBrojRacuna" prefWidth="75.0" text="Broj racuna" />
+          <TableColumn fx:id="colBrojRacuna" prefWidth="75.0" text="Broj računa" />
             <TableColumn fx:id="colPozivNaBroj" prefWidth="75.0" text="Poziv na broj" />
             <TableColumn fx:id="colDatumIzdavanja" prefWidth="75.0" text="Datum izdavanja" />
             <TableColumn fx:id="colMestoIzdavanja" prefWidth="75.0" text="Mesto izdavanja" />
@@ -66,19 +59,19 @@
             <TableColumn fx:id="colRedniBroj" prefWidth="75.0" text="Redni broj" />
             <TableColumn fx:id="colNaziv" prefWidth="75.0" text="Naziv" />
             <TableColumn fx:id="colJm" prefWidth="75.0" text="JM" />
-            <TableColumn fx:id="colKolicina" prefWidth="75.0" text="Kolicina" />
+            <TableColumn fx:id="colKolicina" prefWidth="75.0" text="Količina" />
             <TableColumn fx:id="colCena" prefWidth="75.0" text="Cena" />
             <TableColumn fx:id="colPdvProcenat" prefWidth="75.0" text="\%" />
             <TableColumn fx:id="colCenaSaPdv" prefWidth="75.0" text="Cena sa PDV" />
             <TableColumn fx:id="colPdv" prefWidth="75.0" text="PDV" />
             <TableColumn fx:id="colIznos" prefWidth="75.0" text="Iznos" />
-            <TableColumn fx:id="colNazivDazbine" prefWidth="75.0" text="Naziv dazbine" />
+            <TableColumn fx:id="colNazivDazbine" prefWidth="75.0" text="Naziv dažbine" />
             <TableColumn fx:id="colIznosPoreza" prefWidth="75.0" text="Iznos poreza" />
             <TableColumn fx:id="colZaUplatu" prefWidth="75.0" text="Za uplatu" />
             <TableColumn fx:id="colSlovima" prefWidth="75.0" text="Slovima" />
             <TableColumn fx:id="colIdKorisnik" prefWidth="75.0" text="idKorisnik" />
             <TableColumn fx:id="colNapomena" prefWidth="75.0" text="Napomena" />
-            <TableColumn fx:id="colNapomenaOPO" prefWidth="75.0" text="Napomena o poreskom oslobodjenju" />
+            <TableColumn fx:id="colNapomenaOPO" prefWidth="75.0" text="Napomena o poreskom oslobođenju" />
         </columns>
       </TableView>
    </center>

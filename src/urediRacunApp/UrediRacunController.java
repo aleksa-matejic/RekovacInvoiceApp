@@ -185,8 +185,8 @@ public class UrediRacunController implements Initializable
             conn.close();
 
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Akcija uspesna!");
-            alert.setHeaderText("Azuriranje racuna uspesno!");
+            alert.setTitle("Akcija uspešna!");
+            alert.setHeaderText("Ažuriranje računa uspešno!");
             alert.setContentText("Molimo pritisnite OK.");
             alert.showAndWait();
 

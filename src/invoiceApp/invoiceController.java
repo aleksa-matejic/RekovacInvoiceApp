@@ -380,8 +380,8 @@ public class invoiceController implements Initializable
             conn.close();
 
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Akcija uspesna!");
-            alert.setHeaderText("Azuriranje podataka o firmi uspesno!");
+            alert.setTitle("Akcija uspešna!");
+            alert.setHeaderText("Ažuriranje podataka o firmi uspešno!");
             alert.setContentText("Molimo pritisnite OK.");
             alert.showAndWait();
         } catch (SQLException ex)

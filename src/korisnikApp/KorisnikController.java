@@ -55,6 +55,8 @@ public class KorisnikController implements Initializable
 
         disableTextFields();
 
+        disableTextFieldsRacun();
+
         btnDodajRacun.setOnAction(new EventHandler<ActionEvent>()
         {
             @Override
@@ -131,22 +133,7 @@ public class KorisnikController implements Initializable
             @Override
             public void handle(ActionEvent e)
             {
-                try
-                {
-                    if (selectedRacunData == null)
-                    {
-                        return;
-                    }
-                    // --- Show Jasper Report on click-----
-                    new InvoicePrintReport().showReport(selectedRacunData, korisnikData, firmaData);
-                } catch (JRException | SQLException e1)
-                {
-                    e1.printStackTrace();
-                } catch (IOException ex) {
-                    throw new RuntimeException(ex);
-                } catch (FontFormatException ex) {
-                    throw new RuntimeException(ex);
-                }
+                showReport();
             }
         });
 
@@ -158,6 +145,11 @@ public class KorisnikController implements Initializable
                 if (event.getClickCount() == 1 && (!row.isEmpty()))
                 {
                     selectedRacunData = row.getItem();
+                    enableTextFieldsRacun();
+                }
+                else if (event.getClickCount() == 2 && (!row.isEmpty()))
+                {
+                    showReport();
                 }
             });
             return row;
@@ -195,6 +187,25 @@ public class KorisnikController implements Initializable
     @FXML
     private TextField tfDug;
 
+    private void showReport()
+    {
+        try
+        {
+            if (selectedRacunData == null)
+            {
+                return;
+            }
+            // --- Show Jasper Report on click-----
+            new InvoicePrintReport().showReport(selectedRacunData, korisnikData, firmaData);
+        } catch (JRException | SQLException e1)
+        {
+            e1.printStackTrace();
+        } catch (IOException ex) {
+            throw new RuntimeException(ex);
+        } catch (FontFormatException ex) {
+            throw new RuntimeException(ex);
+        }
+    }
     private void populateKorisnikTextFields()
     {
         this.tfIdKorisnik.setText(this.korisnikData.getIdKorisnik());
@@ -232,6 +243,19 @@ public class KorisnikController implements Initializable
         this.tfAdresaKor.setDisable(true);
         this.tfPibKor.setDisable(true);
         this.tfDug.setDisable(true);
+    }
+
+    private void enableTextFieldsRacun()
+    {
+        this.btnUrediRacun.setDisable(false);
+        this.btnObrisiRacun.setDisable(false);
+        this.btnStampajRacun.setDisable(false);
+    }
+    private void disableTextFieldsRacun()
+    {
+        this.btnUrediRacun.setDisable(true);
+        this.btnObrisiRacun.setDisable(true);
+        this.btnStampajRacun.setDisable(true);
     }
 
     // RACUN DATA TABLE

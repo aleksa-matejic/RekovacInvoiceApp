@@ -23,7 +23,7 @@ public class InvoiceApp extends Application
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Probna verzija istekla!");
             alert.setHeaderText("Probna verzija aplikacije je istekla, molimo da se javite developeru na mail aljosa.gk@gmail.com");
-            alert.setContentText("Molimo pritisnite OK da ugasite aplikaciju.");
+            alert.setContentText("Molimo pritisnite OK.");
             alert.showAndWait();
             System.exit(1);
         }

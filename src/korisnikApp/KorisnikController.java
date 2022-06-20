@@ -398,10 +398,10 @@ public class KorisnikController implements Initializable
             return;
         }
 
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        Alert alert = new Alert(Alert.AlertType.WARNING);
         alert.setTitle("Potvrdite akciju!");
-        alert.setHeaderText("Obrisati korisnikov račun?");
-        alert.setContentText("Da li ste sigurni?");
+        alert.setHeaderText("Želite obrisati korisnikov račun?");
+        alert.setContentText("Da li ste sigurni? Podaci se ne mogu vratiti!");
 
         Optional<ButtonType> result = alert.showAndWait();
         if (result.get() == ButtonType.OK)
@@ -487,10 +487,10 @@ public class KorisnikController implements Initializable
 
     private void obrisiKorisnika()
     {
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        Alert alert = new Alert(Alert.AlertType.WARNING);
         alert.setTitle("Potvrdite akciju!");
-        alert.setHeaderText("Obrisati korisnika i sve njegove račune?");
-        alert.setContentText("Da li ste sigurni?");
+        alert.setHeaderText("Želite obrisati korisnika i sve njegove račune?");
+        alert.setContentText("Da li ste sigurni? Podaci se ne mogu vratiti!");
 
         Optional<ButtonType> result = alert.showAndWait();
         if (result.get() == ButtonType.OK)

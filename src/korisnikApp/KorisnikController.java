@@ -30,6 +30,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
@@ -200,9 +201,11 @@ public class KorisnikController implements Initializable
         } catch (JRException | SQLException e1)
         {
             e1.printStackTrace();
-        } catch (IOException ex) {
+        } catch (IOException ex)
+        {
             throw new RuntimeException(ex);
-        } catch (FontFormatException ex) {
+        } catch (FontFormatException ex)
+        {
             throw new RuntimeException(ex);
         }
     }
@@ -403,31 +406,37 @@ public class KorisnikController implements Initializable
         alert.setHeaderText("Želite obrisati korisnikov račun?");
         alert.setContentText("Da li ste sigurni? Podaci se ne mogu vratiti!");
 
-        Optional<ButtonType> result = alert.showAndWait();
-        if (result.get() == ButtonType.OK)
+        try
         {
-            String sql = "DELETE FROM racun WHERE idRacun = ?";
-            try
-            {
-                Connection conn = dbConnection.getConnection();
-                PreparedStatement stmt = conn.prepareStatement(sql);
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.get() == ButtonType.OK) {
+                String sql = "DELETE FROM racun WHERE idRacun = ?";
+                try
+                {
+                    Connection conn = dbConnection.getConnection();
+                    PreparedStatement stmt = conn.prepareStatement(sql);
 
-                stmt.setString(1, selectedRacunData.getIdRacun());
+                    stmt.setString(1, selectedRacunData.getIdRacun());
 
-                stmt.executeUpdate();
-                conn.close();
+                    stmt.executeUpdate();
+                    conn.close();
 
-                alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Akcija uspešna!");
-                alert.setHeaderText("Račun uspešno obrisan!");
-                alert.setContentText("Molimo pritisnite OK.");
-                alert.showAndWait();
+                    alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Akcija uspešna!");
+                    alert.setHeaderText("Račun uspešno obrisan!");
+                    alert.setContentText("Molimo pritisnite OK.");
+                    alert.showAndWait();
 
-                // ALEKSA TODO: BUG obrisati racun da nema ni jedan i onda stisnuti uredi
-            } catch (SQLException ex)
-            {
-                ex.printStackTrace();
+                    // ALEKSA TODO: BUG obrisati racun da nema ni jedan i onda stisnuti uredi
+                }
+                catch (SQLException ex)
+                {
+                    ex.printStackTrace();
+                }
             }
+        } catch (NoSuchElementException exc)
+        {
+            exc.printStackTrace();
         }
     }
 
@@ -492,47 +501,53 @@ public class KorisnikController implements Initializable
         alert.setHeaderText("Želite obrisati korisnika i sve njegove račune?");
         alert.setContentText("Da li ste sigurni? Podaci se ne mogu vratiti!");
 
-        Optional<ButtonType> result = alert.showAndWait();
-        if (result.get() == ButtonType.OK)
+        try
         {
-            String sql = "DELETE FROM korisnik WHERE idKorisnik = ?";
-            try
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.get() == ButtonType.OK)
             {
-                Connection conn = dbConnection.getConnection();
-                PreparedStatement stmt = conn.prepareStatement(sql);
+                String sql = "DELETE FROM korisnik WHERE idKorisnik = ?";
+                try
+                {
+                    Connection conn = dbConnection.getConnection();
+                    PreparedStatement stmt = conn.prepareStatement(sql);
 
-                stmt.setString(1, korisnikData.getIdKorisnik());
+                    stmt.setString(1, korisnikData.getIdKorisnik());
 
-                stmt.executeUpdate();
-                conn.close();
-            } catch (SQLException ex)
-            {
-                ex.printStackTrace();
+                    stmt.executeUpdate();
+                    conn.close();
+                } catch (SQLException ex)
+                {
+                    ex.printStackTrace();
+                }
+
+                sql = "DELETE FROM racun WHERE idKorisnik = ?";
+                try
+                {
+                    Connection conn = dbConnection.getConnection();
+                    PreparedStatement stmt = conn.prepareStatement(sql);
+
+                    stmt.setString(1, korisnikData.getIdKorisnik());
+
+                    stmt.executeUpdate();
+                    conn.close();
+                } catch (SQLException ex)
+                {
+                    ex.printStackTrace();
+                }
+
+                alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Akcija uspešna!");
+                alert.setHeaderText("Korisnik uspešno obrisan!");
+                alert.setContentText("Molimo pritisnite OK.");
+                alert.showAndWait();
+
+                Stage stage = (Stage) btnObrisiKorisnika.getScene().getWindow();
+                stage.close();
             }
-
-            sql = "DELETE FROM racun WHERE idKorisnik = ?";
-            try
-            {
-                Connection conn = dbConnection.getConnection();
-                PreparedStatement stmt = conn.prepareStatement(sql);
-
-                stmt.setString(1, korisnikData.getIdKorisnik());
-
-                stmt.executeUpdate();
-                conn.close();
-            } catch (SQLException ex)
-            {
-                ex.printStackTrace();
-            }
-
-            alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Akcija uspešna!");
-            alert.setHeaderText("Korisnik uspešno obrisan!");
-            alert.setContentText("Molimo pritisnite OK.");
-            alert.showAndWait();
-
-            Stage stage = (Stage) btnObrisiKorisnika.getScene().getWindow();
-            stage.close();
+        } catch (NoSuchElementException exc)
+        {
+            exc.printStackTrace();
         }
     }
 

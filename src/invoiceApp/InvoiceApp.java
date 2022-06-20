@@ -19,7 +19,8 @@ public class InvoiceApp extends Application
 
         boolean trialExpired = dateExpires.isBefore(dateNow);
 
-        if (trialExpired) {
+        if (trialExpired)
+        {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Probna verzija istekla!");
             alert.setHeaderText("Probna verzija aplikacije je istekla, molimo da se javite developeru na mail aljosa.gk@gmail.com");

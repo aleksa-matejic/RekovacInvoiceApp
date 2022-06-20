@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
@@ -67,9 +68,18 @@
                 <TextField fx:id="tfIznosPoreza" GridPane.columnIndex="5" GridPane.rowIndex="2" />
                 <TextField fx:id="tfZaUplatu" GridPane.columnIndex="5" GridPane.rowIndex="3" />
                 <TextField fx:id="tfSlovima" GridPane.columnIndex="5" GridPane.rowIndex="4" />
-                <DatePicker fx:id="dpDatumIzdavanja" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                <DatePicker fx:id="dpDospeva" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                <DatePicker fx:id="dpDatumPrometa" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                <DatePicker fx:id="dpDatumIzdavanja" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></DatePicker>
+                <DatePicker fx:id="dpDospeva" GridPane.columnIndex="1" GridPane.rowIndex="4">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></DatePicker>
+                <DatePicker fx:id="dpDatumPrometa" GridPane.columnIndex="1" GridPane.rowIndex="5">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></DatePicker>
                 <Label maxWidth="-Infinity" minWidth="-Infinity" text="Napomena" GridPane.columnIndex="4" GridPane.rowIndex="5" />
                 <TextField fx:id="tfNapomena" GridPane.columnIndex="5" GridPane.rowIndex="5" />
                 <Label maxWidth="-Infinity" minWidth="-Infinity" text="Napomena o poreskom oslobođenju" GridPane.columnIndex="4" GridPane.rowIndex="6" />
@@ -85,6 +95,9 @@
                   <Image url="@../images/icons8-file-invoice-dollar-32.png" />
                </image>
             </ImageView>
-         </graphic></Button>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
     </bottom>
 </BorderPane>

@@ -1,18 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
     <center>
         <GridPane BorderPane.alignment="CENTER">
             <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" />
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="100.0" />
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" />
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             </columnConstraints>
             <rowConstraints>
@@ -25,25 +32,25 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
-                <Label text="Broj računa" />
-                <Label text="Poziv na broj" GridPane.rowIndex="1" />
-                <Label text="Datum izdavanja" GridPane.rowIndex="2" />
-                <Label text="Mesto izdavanja" GridPane.rowIndex="3" />
-                <Label text="Dospeva" GridPane.rowIndex="4" />
-                <Label text="Datum prometa" GridPane.rowIndex="5" />
-                <Label text="Redni broj" GridPane.rowIndex="6" />
-                <Label text="Naziv" GridPane.columnIndex="2" />
-                <Label text="JM" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                <Label text="Količina" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                <Label text="Cena" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-                <Label text="\%" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-                <Label text="Cena sa PDV" GridPane.columnIndex="2" GridPane.rowIndex="5" />
-                <Label text="PDV" GridPane.columnIndex="2" GridPane.rowIndex="6" />
-                <Label text="Iznos" GridPane.columnIndex="4" />
-                <Label text="Naziv dažbine" GridPane.columnIndex="4" GridPane.rowIndex="1" />
-                <Label text="Iznos poreza" GridPane.columnIndex="4" GridPane.rowIndex="2" />
-                <Label text="Za uplatu" GridPane.columnIndex="4" GridPane.rowIndex="3" />
-                <Label text="Slovima" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+                <Label maxWidth="-Infinity" minWidth="-Infinity" text="Broj računa" />
+                <Label maxWidth="-Infinity" minWidth="-Infinity" text="Poziv na broj" GridPane.rowIndex="1" />
+                <Label maxWidth="-Infinity" minWidth="-Infinity" text="Datum izdavanja" GridPane.rowIndex="2" />
+                <Label maxWidth="-Infinity" minWidth="-Infinity" text="Mesto izdavanja" GridPane.rowIndex="3" />
+                <Label maxWidth="-Infinity" minWidth="-Infinity" text="Dospeva" GridPane.rowIndex="4" />
+                <Label maxWidth="-Infinity" minWidth="-Infinity" text="Datum prometa" GridPane.rowIndex="5" />
+                <Label maxWidth="-Infinity" minWidth="-Infinity" text="Redni broj" GridPane.rowIndex="6" />
+                <Label maxWidth="-Infinity" minWidth="-Infinity" text="Naziv" GridPane.columnIndex="2" />
+                <Label maxWidth="-Infinity" minWidth="-Infinity" text="JM" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                <Label maxWidth="-Infinity" minWidth="-Infinity" text="Količina" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                <Label maxWidth="-Infinity" minWidth="-Infinity" text="Cena" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                <Label maxWidth="-Infinity" minWidth="-Infinity" text="\%" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                <Label maxWidth="-Infinity" minWidth="-Infinity" text="Cena sa PDV" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+                <Label maxWidth="-Infinity" minWidth="-Infinity" text="PDV" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+                <Label maxWidth="-Infinity" minWidth="-Infinity" text="Iznos" GridPane.columnIndex="4" />
+                <Label maxWidth="-Infinity" minWidth="-Infinity" text="Naziv dažbine" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                <Label maxWidth="-Infinity" minWidth="-Infinity" text="Iznos poreza" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+                <Label maxWidth="-Infinity" minWidth="-Infinity" text="Za uplatu" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+                <Label maxWidth="-Infinity" minWidth="-Infinity" text="Slovima" GridPane.columnIndex="4" GridPane.rowIndex="4" />
                 <TextField fx:id="tfBrojRacuna" GridPane.columnIndex="1" />
                 <TextField fx:id="tfPozivNaBroj" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                 <TextField fx:id="tfMestoIzdavanja" GridPane.columnIndex="1" GridPane.rowIndex="3" />
@@ -63,9 +70,9 @@
                 <DatePicker fx:id="dpDatumIzdavanja" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                 <DatePicker fx:id="dpDospeva" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                 <DatePicker fx:id="dpDatumPrometa" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                <Label text="Napomena" GridPane.columnIndex="4" GridPane.rowIndex="5" />
+                <Label maxWidth="-Infinity" minWidth="-Infinity" text="Napomena" GridPane.columnIndex="4" GridPane.rowIndex="5" />
                 <TextField fx:id="tfNapomena" GridPane.columnIndex="5" GridPane.rowIndex="5" />
-                <Label text="Napomena o poreskom oslobođenju" GridPane.columnIndex="4" GridPane.rowIndex="6" />
+                <Label maxWidth="-Infinity" minWidth="-Infinity" text="Napomena o poreskom oslobođenju" GridPane.columnIndex="4" GridPane.rowIndex="6" />
                 <TextField fx:id="tfNapomenaOPO" GridPane.columnIndex="5" GridPane.rowIndex="6" />
             </children>
         </GridPane>

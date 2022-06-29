@@ -343,21 +343,21 @@
 				<reportElement x="0" y="60" width="560" height="1" uuid="67f54bf7-1e68-4c2b-88ea-ba997b1793fe"/>
 			</line>
 			<staticText>
-				<reportElement x="415" y="60" width="65" height="20" uuid="3852169b-44d4-47e0-afdc-d5916d6feb60"/>
+				<reportElement x="405" y="60" width="65" height="20" uuid="3852169b-44d4-47e0-afdc-d5916d6feb60"/>
 				<textElement textAlignment="Right">
 					<font fontName="DejaVu Sans" size="12" isBold="true" pdfFontName="/report/DejaVuSans-Bold.ttf" pdfEncoding="Cp1251" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[Укупно:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="430" y="80" width="50" height="20" uuid="14653c43-1c45-450e-a013-c3220502314b"/>
+				<reportElement x="420" y="80" width="50" height="20" uuid="14653c43-1c45-450e-a013-c3220502314b"/>
 				<textElement textAlignment="Right">
 					<font fontName="DejaVu Sans" size="12" isBold="true" pdfFontName="/report/DejaVuSans-Bold.ttf" pdfEncoding="Cp1251" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[ПДВ:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="380" y="100" width="100" height="20" uuid="7ac51a8b-9235-4e99-b817-889278437a0a"/>
+				<reportElement x="370" y="100" width="100" height="20" uuid="7ac51a8b-9235-4e99-b817-889278437a0a"/>
 				<textElement textAlignment="Right">
 					<font fontName="DejaVu Sans" size="12" isBold="true" pdfFontName="/report/DejaVuSans-Bold.ttf" pdfEncoding="Cp1251" isPdfEmbedded="true"/>
 				</textElement>
@@ -430,27 +430,27 @@
 				<textFieldExpression><![CDATA[$F{iznosPoreza}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="480" y="60" width="75" height="20" uuid="36935932-0df0-4fdf-bbc6-70270aad6a42"/>
+				<reportElement x="470" y="60" width="85" height="20" uuid="36935932-0df0-4fdf-bbc6-70270aad6a42"/>
 				<textElement textAlignment="Right">
 					<font fontName="DejaVu Sans" size="12" isBold="true" pdfFontName="/report/DejaVuSans-Bold.ttf" pdfEncoding="Cp1251" isPdfEmbedded="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{iznos}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="480" y="80" width="75" height="20" uuid="94f8230f-7320-4883-9935-72e47f879b4b"/>
+				<reportElement x="470" y="80" width="85" height="20" uuid="94f8230f-7320-4883-9935-72e47f879b4b"/>
 				<textElement textAlignment="Right">
 					<font fontName="DejaVu Sans" size="12" isBold="true" pdfFontName="/report/DejaVuSans-Bold.ttf" pdfEncoding="Cp1251" isPdfEmbedded="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{iznosPoreza}]]></textFieldExpression>
 			</textField>
 			<line>
-				<reportElement x="0" y="95" width="280" height="1" uuid="a9c16e90-13fc-4cd3-999a-c2d5139b2e64"/>
+				<reportElement x="0" y="95" width="270" height="1" uuid="a9c16e90-13fc-4cd3-999a-c2d5139b2e64"/>
 			</line>
 			<line>
-				<reportElement x="0" y="130" width="280" height="1" uuid="71627701-92c2-4bf4-8338-5d3f50c6edba"/>
+				<reportElement x="0" y="130" width="270" height="1" uuid="71627701-92c2-4bf4-8338-5d3f50c6edba"/>
 			</line>
 			<textField>
-				<reportElement x="480" y="100" width="74" height="20" uuid="2eaa84a2-74bb-4c25-8b26-e5766e6475fd"/>
+				<reportElement x="470" y="100" width="84" height="20" uuid="2eaa84a2-74bb-4c25-8b26-e5766e6475fd"/>
 				<textElement textAlignment="Right">
 					<font fontName="DejaVu Sans" size="12" isBold="true" pdfFontName="/report/DejaVuSans-Bold.ttf" pdfEncoding="Cp1251" isPdfEmbedded="true"/>
 				</textElement>
@@ -464,28 +464,28 @@
 				<textFieldExpression><![CDATA[$F{pdvProcenat}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="280" y="120" width="200" height="20" uuid="1d5a372f-e56c-40d6-ae13-f74426ff0122"/>
+				<reportElement x="270" y="120" width="200" height="20" uuid="1d5a372f-e56c-40d6-ae13-f74426ff0122"/>
 				<textElement>
 					<font fontName="DejaVu Sans" size="12" isBold="true" pdfFontName="/report/DejaVuSans-Bold.ttf" pdfEncoding="Cp1251" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[Дуг из претходног периода:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="311" y="140" width="169" height="20" uuid="21b5f34f-c258-4ac3-8c88-b9453f989cb4"/>
+				<reportElement x="301" y="140" width="169" height="20" uuid="21b5f34f-c258-4ac3-8c88-b9453f989cb4"/>
 				<textElement textAlignment="Right">
 					<font fontName="DejaVu Sans" size="12" isBold="true" pdfFontName="/report/DejaVuSans-Bold.ttf" pdfEncoding="Cp1251" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[Укупно за уплату:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="480" y="120" width="74" height="20" uuid="d649e423-54df-4e5f-a0eb-54f970e373cc"/>
+				<reportElement x="470" y="120" width="84" height="20" uuid="d649e423-54df-4e5f-a0eb-54f970e373cc"/>
 				<textElement textAlignment="Right">
 					<font fontName="DejaVu Sans" size="12" isBold="true" pdfFontName="/report/DejaVuSans-Bold.ttf" pdfEncoding="Cp1251" isPdfEmbedded="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{dug}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="480" y="140" width="74" height="20" uuid="f69399f5-17b7-47b3-a1f6-f12f882b45fb"/>
+				<reportElement x="470" y="140" width="84" height="20" uuid="f69399f5-17b7-47b3-a1f6-f12f882b45fb"/>
 				<textElement textAlignment="Right">
 					<font fontName="DejaVu Sans" size="12" isBold="true" pdfFontName="/report/DejaVuSans-Bold.ttf" pdfEncoding="Cp1251" isPdfEmbedded="true"/>
 				</textElement>

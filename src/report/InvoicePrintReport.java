@@ -80,12 +80,16 @@ public class InvoicePrintReport extends JFrame
 
         JasperReport jasperReport = JasperCompileManager.compileReport(is);
 
+        String dospeva = datumFormat(racunData.getDospeva());
+        String datumPrometa = datumFormat(racunData.getDatumPrometa());
+        String datumIzdavanjaRacuna = datumFormat(racunData.getDatumIzdavanja());
+
         parameters.put("racunBroj", racunData.getBrojRacuna());
         parameters.put("pozivNaBroj", racunData.getPozivNaBroj());
-        parameters.put("datumIzdavanjaRacuna", racunData.getDatumIzdavanja());
+        parameters.put("datumIzdavanjaRacuna", datumIzdavanjaRacuna);
         parameters.put("mestoIzdavanjaRacuna", racunData.getMestoIzdavanja());
-        parameters.put("dospeva", racunData.getDospeva());
-        parameters.put("datumPrometa", racunData.getDatumPrometa());
+        parameters.put("dospeva", dospeva);
+        parameters.put("datumPrometa", datumPrometa);
 
         parameters.put("ime", korisnikData.getIme());
         parameters.put("adresa", korisnikData.getAdresa());
@@ -159,5 +163,19 @@ public class InvoicePrintReport extends JFrame
 
         // Aleksa TODO: crash if string is not number
         return Double.parseDouble(numberString);
+    }
+
+    private String datumFormat(String datum)
+    {
+        if ((datum != null) && !datum.isEmpty())
+        {
+            String[] delovi = datum.split("/");
+            String mesec = delovi[0];
+            String dan = delovi[1];
+            String godina = delovi[2];
+
+            return dan + "/" + mesec + "/" + godina;
+        }
+        return "";
     }
 }

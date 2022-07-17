@@ -70,11 +70,12 @@ public class InvoicePrintReport extends JFrame
             parameters.put("napomena", racunData.getNapomena());
         }
 
-        if (!korisnikData.getDug().isEmpty())
+        if ((korisnikData.getDug() != null) && !korisnikData.getDug().isEmpty())
         {
             is = this.getClass().getResourceAsStream("/report/RekovacInvoiceReportDug.jrxml");
             parameters.put("dug", korisnikData.getDug());
-            parameters.put("dugPlusUplata", dugPlusUplata(korisnikData.getDug(), racunData.getZaUplatu()));
+            String dugPlusUplata = dugPlusUplata(korisnikData.getDug(), racunData.getZaUplatu());
+            parameters.put("dugPlusUplata", dugPlusUplata);
         }
 
         JasperReport jasperReport = JasperCompileManager.compileReport(is);
@@ -132,7 +133,16 @@ public class InvoicePrintReport extends JFrame
 
     private String dugPlusUplata(String dug, String zaUplatu)
     {
-        Double sum = getDoubleFromString(dug) + getDoubleFromString(zaUplatu);
+        String zaUplatuLocal = "";
+        if (zaUplatu.isEmpty())
+        {
+            zaUplatuLocal = "0";
+        }
+        else
+        {
+            zaUplatuLocal = zaUplatu;
+        }
+        Double sum = getDoubleFromString(dug) + getDoubleFromString(zaUplatuLocal);
 
         String tmp = String.format("%,.2f", sum);
         tmp = tmp.replace("," , " ");
